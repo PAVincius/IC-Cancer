@@ -2,50 +2,50 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import HomeScreen from '../src/screens/HomeScreen';
+import ReminderList from '../src/screens/ReminderList';
+import ChatScreen from '../src/screens/ChatScreen';
+import InfoPessoais from '../components/forms/InfoPessoais';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
 export default function BottomTabNavigator({ navigation, route }) {
-  // Set the header title on the parent stack navigator depending on the
-  // currently active tab. Learn more in the documentation:
-  // https://reactnavigation.org/docs/en/screen-options-resolution.html
+  
   navigation.setOptions({ headerTitle: getHeaderTitle(route) });
 
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Meus Dados"
+        component={InfoPessoais}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: 'Meus Dados',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
         }}
       />
       <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
+        name="Lembretes"
+        component={ReminderList}
         options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: 'Lembretes',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-mail-unread" />,
         }}
       />
       <BottomTab.Screen
-        name="algo"
+        name="M. de Saúde"
         component={HomeScreen}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: 'M. de Saúde',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-pulse" />,
         }}
       />
       <BottomTab.Screen
-        name="alguma"
-        component={HomeScreen}
+        name="Canal Aberto"
+        component={ChatScreen}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: 'Canal Aberto',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="ios-chatboxes" />,
         }}
       />
     </BottomTab.Navigator>
@@ -60,5 +60,9 @@ function getHeaderTitle(route) {
       return 'How to get started';
     case 'Links':
       return 'Links to learn more';
+    case 'ReminderList':
+      return 'Lembretes';
+    case 'Canal Aberto':
+      return 'Canal Aberto';
   }
 }
