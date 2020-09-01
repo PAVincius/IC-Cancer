@@ -9,7 +9,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import Colors from '../../constants/Colors';
 import { useFormik } from 'formik';
 import { useState } from 'react';
-import {widthPercentageToDP,heightPercentageToDP} from '../../constants/Styles';
+import { widthPercentageToDP,heightPercentageToDP } from '../../constants/Styles';
 
 import * as api from '../api';
 import { useAuth } from '../auth';
