@@ -16,6 +16,7 @@ import FormsNavigator from './navigation/FormsNavigator';
 import useCachedResources from './hooks/useCachedResources';
 //import ThemeContext from './assets/context/ThemeContext';
 import DrawerNavigator from './navigation/DrawerNavigator';
+import { StoreProvider } from './src/store';
 
 const theme = {
   ...DefaultTheme,
@@ -49,6 +50,7 @@ export default function App() {
     return null;
   } else {
     return (
+      <StoreProvider>
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
         <PaperProvider theme={theme}>
@@ -66,6 +68,7 @@ export default function App() {
           </NavigationContainer>
         </PaperProvider>
       </View>
+      </StoreProvider>
     );
   }
 }

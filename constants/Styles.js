@@ -83,7 +83,9 @@ const styles = StyleSheet.create({
       marginBottom: heightPercentageToDP('2%'),
       fontSize: heightPercentageToDP('1.5%'),
       alignSelf: 'flex-end',
-      margin:2
+      margin:2,
+      color: 'blue',
+      textDecorationLine: 'underline',
     },
     SafeView:{
       width: widthPercentageToDP('100%'),
