@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
     },
+    backgroundImage:{
+      flex: 1,
+      resizeMode: 'cover',
+    },
     marginBasic: {
       margin: 10,
       justifyContent: 'flex-start'
@@ -80,8 +84,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     subTextInput:{
-      marginBottom: heightPercentageToDP('2%'),
-      fontSize: heightPercentageToDP('1.5%'),
+      marginBottom: heightPercentageToDP('1%'),
+      fontSize: heightPercentageToDP('2%'),
       alignSelf: 'flex-end',
       margin:2,
       color: 'blue',

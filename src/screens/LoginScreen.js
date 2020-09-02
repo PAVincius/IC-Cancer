@@ -26,7 +26,7 @@ const LoginScreen = ({navigation}) => {
 
         onSubmit: async values => {
         try {
-            const { data } = await api.login(values)
+            const { data } = await api.login({name, senha})
             login(data)
         } catch (error) {
             setState('Login ou senha inválidos')

@@ -1,48 +1,85 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { Container, Tab, Tabs, TabHeading, Icon, Footer } from 'native-base';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { DrawerActions } from '@react-navigation/native';
+import * as React from 'react';
+import { AnimatedTabBarNavigator } from "react-native-animated-nav-tab-bar";
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import Colors from '../../constants/Colors';
 
+import TabBarIcon from '../../components/TabBarIcon';
+import tab from '../../navigation/tab';
+import styles from '../../constants/Styles';
 import PersonalInformation from '../../components/forms/PersonalInformation';
 import Contact from '../../components/forms/Contact';
 import Adress from '../../components/forms/Adress';
 import AdressLab from '../../components/forms/AdressLab';
-import styles from '../../constants/Styles';
 
-export default function MydataScreen({navigation}) {
-    return(
-        <Container>
-      <View style={styles.header}>
-        <Icon
-          name='menu'
-          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-        />
-      </View>
-      <Tabs initialPage={0} >
-        <Tab heading={<TabHeading><Icon name="md-person" /></TabHeading>}>
-          <PersonalInformation />
-        </Tab>
-        <Tab heading={<TabHeading><Icon name="md-business" /></TabHeading>}>
-          <Adress />
-        </Tab>
-        <Tab heading={<TabHeading><Icon name="md-call" /></TabHeading>}>
-          <Contact />
-        </Tab>
-        <Tab heading={<TabHeading><Icon name="md-flask" /></TabHeading>}>
-          <AdressLab/>
-        </Tab>
-      </Tabs>
-      <Footer style={{backgroundColor: '#00bcd4', alignItems: 'center', alignContent: 'center', padding: 5}}>
-        <View style={[styles.dataMargin, {marginLeft: 14}]}>
-          <TouchableOpacity >
-            <View style={[styles.StyledButton, {height: 30}]}>
-                <Text style={{color: '#fff', fontSize: 20}}>Atualizar</Text>
-            </View>
-          </TouchableOpacity>
-        </View>        
-      </Footer>
-    </Container>
+const MydataTab = createMaterialBottomTabNavigator();
+const INITIAL_ROUTE_NAME = 'Info Pessoais';
 
-    );
+export default function MydataScreen({ navigation, route }) {
+  navigation.setOptions({ headerTitle: getHeaderTitle(route) });
+  return (
+    <MydataTab.Navigator
+      initialRouteName={INITIAL_ROUTE_NAME}
+      activeColor={Colors.white}
+    >
+      <MydataTab.Screen
+        name="Info Pessoais"
+        component={PersonalInformation}
+        options={{
+          tabBarLabel: 'Info Pessoais',
+          tabBarColor: Colors.secondary,
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon name="md-person" focused={focused}size={30} />
+          ),
+        }}
+      />
+      <MydataTab.Screen
+        name="Endereco"
+        component={Adress}
+        options={{
+          tabBarLabel: 'Endereço',
+          tabBarColor: Colors.blue,
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon name="md-business" focused={focused} size={30} />
+          ),
+        }}
+      />
+      <MydataTab.Screen
+        name="Contato"
+        component={Contact}
+        options={{
+          tabBarLabel: 'Contato',
+          tabBarColor: Colors.blue,
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon name="md-call" focused={focused} size={30} />
+          ),
+        }}
+      />
+      <MydataTab.Screen
+        name="Laboratório"
+        component={AdressLab}
+        options={{
+          tabBarLabel: 'Laboratótio',
+          tabBarColor: Colors.blue,
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon name="md-flask" focused={focused} size={30} />
+          ),
+        }}
+      />
+    </MydataTab.Navigator>
+  );
+}
+
+function getHeaderTitle(route) {
+  const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
+
+  switch (routeName) {
+    case 'Info Pessoais':
+      return 'Info Pessoais';
+    case 'Endereco':
+      return 'Endereco';
+    case 'Contato':
+      return 'Contato';
+    case 'Laboratório':
+      return 'Laboratório';
+  }
 }

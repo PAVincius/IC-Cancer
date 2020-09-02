@@ -3,11 +3,19 @@ import { View, TextInput, Button, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
+import { Icon } from 'native-base';
+import { DrawerActions } from '@react-navigation/native';
 
 import styles from '../../constants/Styles';
 
 const Adress = (props) => (
     <View style={styles.dataContainer}>
+        <View style={styles.header}>
+            <Icon
+                name='menu'
+                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+            />
+        </View>
         <View style={[styles.dataMargin, {width: '100%'}]}>
             <Text style={styles.dataLabel}>
                 Endereço:

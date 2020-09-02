@@ -6,7 +6,7 @@ export const login = credentials =>
           token: '123456',
           user: {
             name: 'Bruno',
-            email: 'dev@brunobertolini.com',
+            senha: '1234',
           },
         },
       })

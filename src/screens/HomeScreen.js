@@ -11,7 +11,7 @@ import styles from '../../constants/Styles';
 export default function HomeScreen({navigation}) {
 
   return (
-    <View style={{flex:1,justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+    <View style={{flex:1, justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
       <View style={styles.header}>
         <Icon
           name='menu'
