@@ -1,136 +1,137 @@
 import React from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, TextInput, Button, Text, ActivityIndicator } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { withFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Icon } from 'native-base';
 import { DrawerActions } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import styles from '../../constants/Styles';
 
-const AdressLab = (props) => (
-    <View style={styles.dataContainer}>
-        <View style={styles.header}>
-            <Icon
-                name='menu'
-                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-            />
-        </View>
-        <View style={[styles.dataMargin, {width: '100%'}]}>
-            <Text style={styles.dataLabel}>
-                Nome:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.nameLab}
-                onChangeText={text => props.setFieldValue('nameLab', text)}
-            />
-        </View>
-        <View style={[styles.dataMargin, {width: '100%'}]}>
-            <Text style={styles.dataLabel}>
-                Endereço:
-            </Text>
-            <TextInput  
-                style={styles.dataInput}
-                value={props.values.adressLab}
-                onChangeText={text => props.setFieldValue('adressLab', text)}
-            />
-        </View>
-        <View style={[styles.dataMargin, {width: '100%'}]}>
-            <Text style={styles.dataLabel}>
-                Complemento:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.complementLab}
-                onChangeText={text => props.setFieldValue('complementLab', text)}
-            />
-        </View>
-        <View style={[styles.dataMargin, {width: '70%'}]}>
-            <Text style={styles.dataLabel}>
-                Bairro:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.bairroLab}
-                onChangeText={text => props.setFieldValue('bairroLab', text)}
-            />
-        </View>
-        <View style={styles.dataMargin}>
-            <Text style={styles.dataLabel}>
-                Número:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.numberLab}
-                onChangeText={text => props.setFieldValue('numberLab', text)}
-            />
-        </View>
-        <View style={[styles.dataMargin, {width: '40%'}]}>
-            <Text style={styles.dataLabel}>
-                Cidade:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.cityLab}
-                onChangeText={text => props.setFieldValue('cityLab', text)}
-            />
-        </View>
-        <View style={[styles.dataMargin, {width: '16%'}]}>
-            <Text style={styles.dataLabel}>
-                UF:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.ufLab}
-                onChangeText={text => props.setFieldValue('ufLab', text)}
-            />
-        </View>
-    </View>
-);
-
-export default withFormik({
-    mapPropsToValues: () => ({
-        nameLab: '',
-        adressLab: '',
-        complementLab: '',
-        bairroLab: '',
-        numberLab: '',
-        cityLab: '',
-        ufLab: '',
-    }),
-
-    validationSchema: Yup.object().shape({
-        nameLab: Yup.string()
-            .min(2, 'Muito curto')
-            .max(50, 'Muito grande')
-            .required('Obrigatório'),
-            complement: Yup.string()
-            .required('Obrigatório'),
-        numberLab: Yup.number()
-            .required('Obrigatório')
-            .positive()
-            .integer(),
-        bairroLab: Yup.string()
-            .required('Obrigatório'),
-        cityLab: Yup.string()
-            .required('Obrigatório'),
-        ufLab: Yup.string()
-            .required('Obrigatório'),
-    }),
+const AdressLab = ({navigation}) => {
+    const formik = useFormik({
+        initialValues: {
+            nameLab: '',
+            adressLab: '',
+            complementLab: '',
+            bairroLab: '',
+            numberLab: '',
+            cityLab: '',
+            ufLab: '',
+        }
+    });
     
-    handleSubmit: (values, {setSubmitting, setErrors}) => {
-        console.log(values);
+      return(
+        <View style={styles.dataContainer}>
+            <View style={styles.header}>
+                <Icon
+                    name='menu'
+                    onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+                />
+            </View>
+            <View style={[styles.dataMargin, {width: '100%'}]}>
+                <Text style={styles.dataLabel}>
+                    Nome do Laborátorio:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'Nome do Laborátorio'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.nameLab}
+                    onChangeText={formik.handleChange('nameLab')}
+                />
+            </View>
+            <View style={[styles.dataMargin, {width: '100%'}]}>
+                <Text style={styles.dataLabel}>
+                    Endereço do Laboratório:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'Endereço do Laboratório'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.adressLab}
+                    onChangeText={formik.handleChange('adressLab')}
+                />
+            </View>
+            <View style={styles.dataMargin}>  
+                <Text style={styles.dataLabel}>
+                    Complemento:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'Complemento'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.complementLab}
+                    onChangeText={formik.handleChange('complementLab')}
+                />
+            </View>
+            <View style={styles.dataMargin}>
+                <Text style={styles.dataLabel}>
+                    Bairro:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'Bairro'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.bairroLab}
+                    onChangeText={formik.handleChange('bairroLab')}
+                />
+            </View>
+            <View style={styles.dataMargin}>
+                <Text style={styles.dataLabel}>
+                    Número:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'Número'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.numberLab}
+                    onChangeText={formik.handleChange('numberLab')}
+                />
+            </View>
+            <View style={styles.dataMargin}>
+                <Text style={styles.dataLabel}>
+                    Cidade:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'Cidade'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.cityLab}
+                    onChangeText={formik.handleChange('cityLab')}
+                />
+            </View>
+            <View style={styles.dataMargin}>  
+                <Text style={styles.dataLabel}>
+                    UF:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'UF'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.ufLab}
+                    onChangeText={formik.handleChange('ufLab')}
+                />
+            </View>
+          <TouchableOpacity onPress={formik.handleSubmit}
+              style={styles.StyledButton}
+          >
+              {formik.isSubmitting ? (
+                  <ActivityIndicator color="#FFF" />
+              ) : (
+                  <Text style={styles.ButtonText}>Atualizar</Text>
+              )}
+          </TouchableOpacity>
+        </View>
+    );
+}
 
-        { props.isSubmitting && <ActivityIndicator /> };
-        
-        apiService.post('/authenticate', values)
-        .then(/* sucesso */)
-        .catch(err => {
-            setSubmitting(false);
-            setErrors({ message: err.message });
-        });
-
-        { props.errors.message && <Text>{props.errors.message}</Text> };
-    }
-})(AdressLab);
+export default AdressLab;

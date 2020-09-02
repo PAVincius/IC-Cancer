@@ -1,111 +1,109 @@
 import React from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, TextInput, Button, Text, ActivityIndicator } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { withFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Icon } from 'native-base';
 import { DrawerActions } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import styles from '../../constants/Styles';
 
-const Contact = (props) => (
-    <View style={styles.dataContainer}>
-        <View style={styles.header}>
-            <Icon
-                name='menu'
-                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-            />
+const Contact = ({navigation}) => {
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            ddd: '',
+            celular: '',
+            dddTel: '',
+            telefone: '',
+        }
+    });
+    
+      return(
+        <View style={styles.dataContainer}>
+            <View style={styles.header}>
+                <Icon
+                    name='menu'
+                    onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+                />
+            </View>
+            <View style={[styles.dataMargin, {width: '100%'}]}>
+                <Text style={styles.dataLabel}>
+                    E-mail:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'E-mail'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.email}
+                    onChangeText={formik.handleChange('email')}
+                />
+            </View>
+            <View style={[styles.dataMargin, {width: '100%'}]}>
+                <Text style={styles.dataLabel}>
+                    DDD:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'DDD'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.ddd}
+                    onChangeText={formik.handleChange('ddd')}
+                />
+            </View>
+            <View style={styles.dataMargin}>  
+                <Text style={styles.dataLabel}>
+                    Celular:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'Celular'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.celular}
+                    onChangeText={formik.handleChange('celular')}
+                />
+            </View>
+            <View style={styles.dataMargin}>
+                <Text style={styles.dataLabel}>
+                    DDD:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'DDD'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.dddTel}
+                    onChangeText={formik.handleChange('dddTel')}
+                />
+            </View>
+            <View style={styles.dataMargin}>
+                <Text style={styles.dataLabel}>
+                    Telefone:
+                </Text>
+                <TextInput  style={styles.dataInput}
+                    placeholder={'Telefone'}
+                    secureTextEntry={false}
+                    underlineColorAndroid='transparent'
+                    placeholderTextColor={Colors.placeHolderColor}
+                    value={formik.values.telefone}
+                    onChangeText={formik.handleChange('telefone')}
+                />
+            </View>
+            <TouchableOpacity onPress={formik.handleSubmit}
+                style={styles.StyledButton}
+            >
+                {formik.isSubmitting ? (
+                    <ActivityIndicator color="#FFF" />
+                ) : (
+                    <Text style={styles.ButtonText}>Atualizar</Text>
+                )}
+            </TouchableOpacity>
         </View>
-        <View style={[styles.dataMargin, {width: '100%'}]}>
-            <Text style={styles.dataLabel}>
-                E-mail:
-            </Text>
-            <TextInput
-                style={[styles.dataInput, { marginRight: 5}]}
-                value={props.values.email}
-                onChangeText={text => props.setFieldValue('email', text)}
-            />
-        </View>
-        <View style={styles.dataMargin}>
-            <Text style={styles.dataLabel}>
-                DDD:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.ddd}
-                onChangeText={text => props.setFieldValue('ddd', text)}
-            />
-        </View>
-        <View style={[styles.dataMargin, {width: '40%', marginRight: 100}]}>
-            <Text style={styles.dataLabel}>
-                Celular:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.celular}
-                onChangeText={text => props.setFieldValue('celular', text)}
-            />
-        </View>
-        <View style={styles.dataMargin}>
-            <Text style={styles.dataLabel}>
-                DDD:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.dddTel}
-                onChangeText={text => props.setFieldValue('dddTel', text)}
-            />
-        </View>
-        <View style={[styles.dataMargin, {width: '40%'}]}>
-            <Text style={styles.dataLabel}>
-                Telefone:
-            </Text>
-            <TextInput
-                style={styles.dataInput}
-                value={props.values.telefone}
-                onChangeText={text => props.setFieldValue('telefone', text)}
-            />
-        </View>
-    </View>
-);
+    );
+}
 
-export default withFormik({
-    mapPropsToValues: () => ({
-        email: '',
-        ddd: '',
-        celular: '',
-        dddTel: '',
-        telefone: '',
-    }),
-    validationSchema: Yup.object().shape({
-        email: Yup.string()
-            .email('E-mail invalido')
-            .required('Obrigatório'),
-        ddd: Yup.number()
-            .required('Obrigatório')
-            .positive()
-            .integer(),
-        celular: Yup.string()
-            .required('Obrigatório'),
-        dddTel: Yup.number()
-            .required('Obrigatório')
-            .positive()
-            .integer(),
-        telefone: Yup.string()
-            .required('Obrigatório'),
-    }),
-    handleSubmit: (values, {setSubmitting, setErrors}) => {
-        console.log(values);
-
-        { props.isSubmitting && <ActivityIndicator /> };
-        
-        apiService.post('/authenticate', values)
-        .then(/* sucesso */)
-        .catch(err => {
-            setSubmitting(false);
-            setErrors({ message: err.message });
-        });
-
-        { props.errors.message && <Text>{props.errors.message}</Text> };
-    }
-})(Contact);
+export default Contact;

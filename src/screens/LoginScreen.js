@@ -26,7 +26,7 @@ const LoginScreen = ({navigation}) => {
 
         onSubmit: async values => {
         try {
-            const { data } = await api.login({name, senha})
+            const { data } = await api.login({username, password})
             login(data)
         } catch (error) {
             setState('Login ou senha inválidos')
@@ -84,7 +84,7 @@ const LoginScreen = ({navigation}) => {
                             <Animatable.Text
                                 animation="bounceIn"
                                 style={styles.subTextInput}
-                                onPress={()  => {navigation.navigate('DrawerRoot')}}
+                                onPress={()  => {navigation.navigate('FirstAcess')}}
                             >
                                     Primeiro acesso?</Animatable.Text>
                         </View>

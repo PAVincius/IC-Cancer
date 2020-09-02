@@ -17,6 +17,7 @@ import useCachedResources from './hooks/useCachedResources';
 import DrawerNavigator from './navigation/DrawerNavigator';
 import { StoreProvider } from './src/store';
 import { useStore } from './src/store';
+import FirstAcess from './src/screens/FirstAcess';
 
 const theme = {
   ...DefaultTheme,
@@ -78,7 +79,7 @@ export default function App() {
               <Stack.Screen options={{headerShown: false}} name="Auth" component={Router} />
               <Stack.Screen options={{headerShown: false}} name="Reminder" component={Reminder} />
               <Stack.Screen options={{headerShown: false}} name="ReminderList" component={ReminderList} />
-              <Stack.Screen options={{headerShown: false}} name="DrawerRoot" component={DrawerNavigator} />
+              <Stack.Screen options={{headerShown: false}} name="FirstAcess" component={FirstAcess} />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>

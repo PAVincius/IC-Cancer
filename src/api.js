@@ -5,8 +5,8 @@ export const login = credentials =>
         data: {
           token: '123456',
           user: {
-            name: 'Bruno',
-            senha: '1234',
+            username: 'Bruno',
+            password: '1234',
           },
         },
       })
