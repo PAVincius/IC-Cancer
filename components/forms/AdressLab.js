@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, TextInput, Button, Text, ActivityIndicator } from 'react-native';
+import { View, TextInput, Button, Text, ActivityIndicator, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Icon } from 'native-base';
 import { DrawerActions } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {LinearGradient} from 'expo-linear-gradient';
 
+import Colors from '../../constants/Colors';
 import styles from '../../constants/Styles';
 
 const AdressLab = ({navigation}) => {
@@ -23,14 +24,18 @@ const AdressLab = ({navigation}) => {
     });
     
       return(
-        <View style={styles.dataContainer}>
-            <View style={styles.header}>
+        <LinearGradient 
+            colors={[Colors.primary, Colors.secondaryLight]}
+            style={{flex:1}}> 
+        <SafeAreaView style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+            <View style={[styles.header, {padding: 15, height: 50, backgroundColor: '#fff'}]}>
                 <Icon
                     name='menu'
+                    style={{marginTop: 3}}
                     onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
                 />
             </View>
-            <View style={[styles.dataMargin, {width: '100%'}]}>
+            <View style={[styles.dataMargin, {width: '96%'}]}>
                 <Text style={styles.dataLabel}>
                     Nome do Laborátorio:
                 </Text>
@@ -43,7 +48,7 @@ const AdressLab = ({navigation}) => {
                     onChangeText={formik.handleChange('nameLab')}
                 />
             </View>
-            <View style={[styles.dataMargin, {width: '100%'}]}>
+            <View style={[styles.dataMargin, {width: '96%'}]}>
                 <Text style={styles.dataLabel}>
                     Endereço do Laboratório:
                 </Text>
@@ -56,7 +61,7 @@ const AdressLab = ({navigation}) => {
                     onChangeText={formik.handleChange('adressLab')}
                 />
             </View>
-            <View style={styles.dataMargin}>  
+            <View style={[styles.dataMargin, {width: '96%'}]}>  
                 <Text style={styles.dataLabel}>
                     Complemento:
                 </Text>
@@ -69,7 +74,7 @@ const AdressLab = ({navigation}) => {
                     onChangeText={formik.handleChange('complementLab')}
                 />
             </View>
-            <View style={styles.dataMargin}>
+            <View style={[styles.dataMargin, {width: '60%'}]}>
                 <Text style={styles.dataLabel}>
                     Bairro:
                 </Text>
@@ -95,7 +100,7 @@ const AdressLab = ({navigation}) => {
                     onChangeText={formik.handleChange('numberLab')}
                 />
             </View>
-            <View style={styles.dataMargin}>
+            <View style={[styles.dataMargin, {width: '50%'}]}>
                 <Text style={styles.dataLabel}>
                     Cidade:
                 </Text>
@@ -108,7 +113,7 @@ const AdressLab = ({navigation}) => {
                     onChangeText={formik.handleChange('cityLab')}
                 />
             </View>
-            <View style={styles.dataMargin}>  
+            <View style={[styles.dataMargin, {width: '18%'}]}>  
                 <Text style={styles.dataLabel}>
                     UF:
                 </Text>
@@ -122,7 +127,7 @@ const AdressLab = ({navigation}) => {
                 />
             </View>
           <TouchableOpacity onPress={formik.handleSubmit}
-              style={styles.StyledButton}
+              style={[styles.StyledButton, {marginLeft: '8%'}]}
           >
               {formik.isSubmitting ? (
                   <ActivityIndicator color="#FFF" />
@@ -130,7 +135,8 @@ const AdressLab = ({navigation}) => {
                   <Text style={styles.ButtonText}>Atualizar</Text>
               )}
           </TouchableOpacity>
-        </View>
+        </SafeAreaView>
+        </LinearGradient>
     );
 }
 

@@ -21,51 +21,96 @@ export {
   heightPercentageToDP
 };
 
-
+//Os styles estão em ordem alfabetica
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
+    //B
     backgroundImage:{
       flex: 1,
       resizeMode: 'cover',
     },
-    marginBasic: {
-      margin: 10,
-      justifyContent: 'flex-start'
+    bar: {
+      width: widthPercentageToDP('100%'),
+      height: heightPercentageToDP('6%'),
+      borderTopLeftRadius: 4,
+      borderTopRightRadius: 4,
     },
-    textBasic: {
-      textAlign: 'justify',
-      fontSize: heightPercentageToDP('2%'),
-      marginVertical: heightPercentageToDP('1%')
+    ButtonText: {
+      fontSize: 28,
+      color: Colors.LoginText,
+      position: 'absolute',
+      top: '20%',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
-    titleText:{
-      textAlign: 'center',
+    //C
+    container: {
+      flex: 1,
+    },
+    //D
+    dataInput: {
+      height: heightPercentageToDP('6%'),
+      borderLeftWidth: 1.9,
+      borderBottomWidth: 1.9,
+      borderBottomColor: '#000',
+      borderRadius: 8,
+      padding: 8,
+      fontSize: 15,
+      backgroundColor: '#fff',
+      marginRight: 3,
+    },
+    dataLabel: {
+      fontSize: 20,
       fontWeight: 'bold',
-      fontSize: heightPercentageToDP('2%'),
-      marginVertical: heightPercentageToDP('5%')
+    },
+    dataMargin: {
+      marginHorizontal: heightPercentageToDP('0.6%'),
+      marginLeft: widthPercentageToDP('1.6%')
+    },
+    //H
+    header:{
+      width: widthPercentageToDP('100%'),
+      height: heightPercentageToDP('10%'), 
+      justifyContent: 'space-between',
+      padding: 18,
+    },
+    helpContainer: {
+      marginTop: 15,
+      alignItems: 'center',
+    },
+    helpLink: {
+      paddingVertical: 15,
+    },
+    helpLinkText: {
+      fontSize: 14,
+      color: '#2e78b7',
+    },
+    homeButton:{
+      margin: 15,
+      borderRadius: 10,
+      backgroundColor: Colors.white,
+      alignItems: 'center',
+      width: widthPercentageToDP('40%'),
+      height: heightPercentageToDP('20%'),
+      shadowColor: '#000',
+      shadowOpacity: 0.8,
+      shadowRadius: 0.1,
+      shadowOffset: {
+       width: 0,
+       height: 8,
+     },
+      elevation: 7,
     },
     homeTitleText:{
       color: Colors.blue,
-      fontSize: heightPercentageToDP('4.5%')
+      fontSize: heightPercentageToDP('4.5%'),
+      marginTop: heightPercentageToDP('4%')
     },
-    tomTab: {
-      borderRadius: 20,
-      height: heightPercentageToDP('20%'),
-    },
+    //I
     imageContainer: {
       resizeMode: 'contain',
       height: heightPercentageToDP('20%'),
       marginBottom: '20%',
       marginTop: '30%'
-    },
-    imageHomeContainer: {
-      resizeMode: 'contain',
-      height: heightPercentageToDP('20%'),
-    },
-    imageContainerMedium: {
-      resizeMode: 'contain',
-      height: heightPercentageToDP('35%')
     },
     imageContainerGreat: {
       resizeMode: 'contain',
@@ -73,39 +118,24 @@ const styles = StyleSheet.create({
       marginBottom: '20%',
       marginTop: '20%'
     },
-    textInput:{
-      width: widthPercentageToDP('85%'),
-      height: heightPercentageToDP('6%'),
-      marginTop: heightPercentageToDP('2.5%'),
-      backgroundColor: Colors.white,
-      borderRadius: 10,
-      flexDirection: 'row',
-      padding: 10,
-      alignItems: 'center',
+    imageContainerMedium: {
+      resizeMode: 'contain',
+      height: heightPercentageToDP('35%')
     },
-    subTextInput:{
-      marginBottom: heightPercentageToDP('1%'),
-      fontSize: heightPercentageToDP('2%'),
-      alignSelf: 'flex-end',
-      margin:2,
-      color: 'blue',
-      textDecorationLine: 'underline',
+    imageHomeContainer: {
+      resizeMode: 'contain',
+      height: heightPercentageToDP('20%'),
     },
-    SafeView:{
-      width: widthPercentageToDP('100%'),
-      height: heightPercentageToDP('30%'),
-      resizeMode: 'contain'
+    //M
+    marginBasic: {
+      margin: 10,
+      justifyContent: 'flex-start'
     },
-    StyledButton: {
-      width: widthPercentageToDP('85%'),
-      height: heightPercentageToDP('7%'),
-      backgroundColor: Colors.blue,
-      borderRadius: 10,
-      flexDirection: 'column',
-      alignContent: 'center',
-      alignItems: 'center',
-      marginTop: heightPercentageToDP('5%'),
+    //N
+    navigationFilename: {
+      marginTop: 5,
     },
+    //P
     primaryButton:{
       width: widthPercentageToDP('90%'),
       height: heightPercentageToDP('8%'),
@@ -125,36 +155,31 @@ const styles = StyleSheet.create({
      },
       elevation: 5,
     },
-    bar: {
+    //S
+    SafeView:{
       width: widthPercentageToDP('100%'),
-      height: heightPercentageToDP('6%'),
-      borderTopLeftRadius: 4,
-      borderTopRightRadius: 4,
+      height: heightPercentageToDP('30%'),
+      resizeMode: 'contain'
     },
-    ButtonText: {
-      fontSize: 28,
-      color: Colors.LoginText,
-      position: 'absolute',
-      top: '20%',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    homeButton:{
-      margin: 15,
+    StyledButton: {
+      width: widthPercentageToDP('85%'),
+      height: heightPercentageToDP('7%'),
+      backgroundColor: Colors.blue,
       borderRadius: 10,
-      backgroundColor: Colors.white,
+      alignContent: 'center',
       alignItems: 'center',
-      width: widthPercentageToDP('40%'),
-      height: heightPercentageToDP('20%'),
-      shadowColor: '#000',
-      shadowOpacity: 0.8,
-      shadowRadius: 0.1,
-      shadowOffset: {
-       width: 0,
-       height: 8,
-     },
-      elevation: 7,
+      marginTop: heightPercentageToDP('3%'),
+      padding: 14,
     },
+    subTextInput:{
+      marginTop: heightPercentageToDP('2%'),
+      fontSize: heightPercentageToDP('2.2%'),
+      alignSelf: 'flex-end',
+      margin:2,
+      color: 'blue',
+      textDecorationLine: 'underline',
+    },
+    //T
     tabBarInfoContainer: {
       position: 'absolute',
       bottom: 0,
@@ -179,54 +204,31 @@ const styles = StyleSheet.create({
       fontSize: 17,
       color: 'rgba(96,100,109, 1)',
       textAlign: 'center',
+    }, 
+    textBasic: {
+      textAlign: 'justify',
+      fontSize: heightPercentageToDP('2%'),
+      marginVertical: heightPercentageToDP('1%')
     },
-    navigationFilename: {
-      marginTop: 5,
-    },
-    helpContainer: {
-      marginTop: 15,
-      alignItems: 'center',
-    },
-    helpLink: {
-      paddingVertical: 15,
-    },
-    helpLinkText: {
-      fontSize: 14,
-      color: '#2e78b7',
-    },
-    dataContainer: {
-      flex: 1,
-      backgroundColor: '#00bcd4',
-      padding: 5,
+    textInput:{
+      width: widthPercentageToDP('85%'),
+      height: heightPercentageToDP('6%'),
+      marginTop: heightPercentageToDP('2.5%'),
+      backgroundColor: Colors.white,
+      borderRadius: 10,
       flexDirection: 'row',
-      flexWrap: "wrap",
+      padding: 10,
       alignItems: 'center',
     },
-    //  marginVertical: heightPercentageToDP('2%')
-    dataLabel: {
-        fontSize: 20,
-        fontWeight: 'bold',
+    titleText:{
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: heightPercentageToDP('2%'),
+      marginVertical: heightPercentageToDP('5%')
     },
-    dataInput: {
-        height: heightPercentageToDP('6%'),
-        borderLeftWidth: 1.9,
-        borderBottomWidth: 1.9,
-        borderBottomColor: '#000',
-        borderRadius: 8,
-        padding: 3,
-        fontSize: 15,
-        backgroundColor: '#fff',
-        marginRight: 5,
+    tomTab: {
+      borderRadius: 20,
+      height: heightPercentageToDP('20%'),
     },
-    dataMargin: {
-        marginHorizontal: heightPercentageToDP('0.6%'),
-        marginVertical: heightPercentageToDP('0.6%')
-    },
-    header:{
-      width: widthPercentageToDP('100%'),
-      height: heightPercentageToDP('10%'), 
-      justifyContent: 'space-between', 
-      padding: 18,
-    }
   });
   export default styles;

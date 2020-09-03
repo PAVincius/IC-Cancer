@@ -48,7 +48,7 @@ export default function MydataScreen({ navigation, route }) {
         component={Contact}
         options={{
           tabBarLabel: 'Contato',
-          tabBarColor: Colors.blue,
+          tabBarColor: Colors.secondary,
           tabBarIcon: ({ focused }) => (
             <TabBarIcon name="md-call" focused={focused} size={30} />
           ),

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import * as Animatable from 'react-native-animatable';
 import { Image, TextInput, View, Button, Text, KeyboardAvoidingView, ActivityIndicator } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
@@ -8,7 +8,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Colors from '../../constants/Colors';
 import { useFormik } from 'formik';
-import { useState } from 'react';
 import { widthPercentageToDP,heightPercentageToDP } from '../../constants/Styles';
 
 import * as api from '../api';
@@ -26,7 +25,7 @@ const LoginScreen = ({navigation}) => {
 
         onSubmit: async values => {
         try {
-            const { data } = await api.login({username, password})
+            const { data } = await api.login(values)
             login(data)
         } catch (error) {
             setState('Login ou senha inválidos')
@@ -84,7 +83,7 @@ const LoginScreen = ({navigation}) => {
                             <Animatable.Text
                                 animation="bounceIn"
                                 style={styles.subTextInput}
-                                onPress={()  => {navigation.navigate('FirstAcess')}}
+                                onPress={() => {navigation.navigate('DrawerRoot')}}
                             >
                                     Primeiro acesso?</Animatable.Text>
                         </View>

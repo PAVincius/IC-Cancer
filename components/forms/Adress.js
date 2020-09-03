@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, TextInput, Button, Text, ActivityIndicator } from 'react-native';
+import { View, TextInput, Button, Text, ActivityIndicator, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Icon } from 'native-base';
 import { DrawerActions } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {LinearGradient} from 'expo-linear-gradient';
 
+import Colors from '../../constants/Colors';
 import styles from '../../constants/Styles';
 
 const Adress = ({navigation}) => {
@@ -23,14 +24,18 @@ const Adress = ({navigation}) => {
     });
     
       return(
-        <View style={styles.dataContainer}>
-            <View style={styles.header}>
+        <LinearGradient 
+            colors={[Colors.primary, Colors.secondaryLight]}
+            style={{flex:1}}> 
+        <SafeAreaView style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+            <View style={[styles.header, {padding: 15, height: 50, backgroundColor: '#fff'}]}>
                 <Icon
                     name='menu'
+                    style={{marginTop: 3}}
                     onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
                 />
             </View>
-            <View style={[styles.dataMargin, {width: '100%'}]}>
+            <View style={[styles.dataMargin, {width: '96%'}]}>
                 <Text style={styles.dataLabel}>
                     Endereço:
                 </Text>
@@ -43,7 +48,7 @@ const Adress = ({navigation}) => {
                     onChangeText={formik.handleChange('adress')}
                 />
             </View>
-            <View style={[styles.dataMargin, {width: '100%'}]}>
+            <View style={[styles.dataMargin, {width: '96%'}]}>
                 <Text style={styles.dataLabel}>
                     Complemento:
                 </Text>
@@ -69,7 +74,7 @@ const Adress = ({navigation}) => {
                     onChangeText={formik.handleChange('number')}
                 />
             </View>
-            <View style={styles.dataMargin}>
+            <View style={[styles.dataMargin, {width: '60%'}]}>
                 <Text style={styles.dataLabel}>
                     Bairro:
                 </Text>
@@ -82,7 +87,7 @@ const Adress = ({navigation}) => {
                     onChangeText={formik.handleChange('bairro')}
                 />
             </View>
-            <View style={styles.dataMargin}>
+            <View style={[styles.dataMargin, {width: '50%'}]}>
                 <Text style={styles.dataLabel}>
                     Cidade:
                 </Text>
@@ -95,7 +100,7 @@ const Adress = ({navigation}) => {
                     onChangeText={formik.handleChange('city')}
                 />
             </View>
-            <View style={styles.dataMargin}>
+            <View style={[styles.dataMargin, {width: '15%'}]}>
                 <Text style={styles.dataLabel}>
                     UF:
                 </Text>
@@ -108,7 +113,7 @@ const Adress = ({navigation}) => {
                     onChangeText={formik.handleChange('uf')}
                 />
             </View>
-            <View style={styles.dataMargin}>  
+            <View style={[styles.dataMargin, {width: '40%'}]}>  
                 <Text style={styles.dataLabel}>
                     CEP:
                 </Text>
@@ -122,7 +127,7 @@ const Adress = ({navigation}) => {
                 />
             </View>
             <TouchableOpacity onPress={formik.handleSubmit}
-                style={styles.StyledButton}
+                style={[styles.StyledButton, {marginLeft: '8%'}]}
             >
                 {formik.isSubmitting ? (
                     <ActivityIndicator color="#FFF" />
@@ -130,7 +135,8 @@ const Adress = ({navigation}) => {
                     <Text style={styles.ButtonText}>Atualizar</Text>
                 )}
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
+        </LinearGradient>
     );
 }
 

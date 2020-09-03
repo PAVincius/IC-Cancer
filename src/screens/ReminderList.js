@@ -23,38 +23,41 @@ export default class ReminderList extends Component {
    const {ReminderList} = this.state;
    const navigation = (this.props.navigation)
    return (
-    <ScrollView>
-      <View style={styles.header}>
-        <Icon
-          name='menu'
-          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-        />
-      </View>
-      <View style={styles.pad}>
-        { 
-        ReminderList.map(({id,hour,date,title,subtitle}) => (
-          <TouchableWithoutFeedback key={id} onPress={() => navigation.navigate('Reminder')}>
-            <View>
-              <View style={styles.container}>
-                <View style={{flex: 1,flexDirection: "row", justifyContent: "space-between", padding:1}}>
-                  <Text>{hour}</Text>
-                  <Text>{date}</Text>
-                </View>
-                <View>
-                  <Text style={styles.title}>{title}</Text>
-                </View>
-                <View style={{flex: 1,flexDirection: "row", justifyContent: "space-between", padding:5}}>
-                  <Text style={styles.text}>{subtitle}</Text>
-                  <TabBarIcon name="md-mail-unread"/>
-                </View>
-              </View>
-              <Text style={{height:8, backgroundColor: 'rgba(0,0,0, 0.0)'}}></Text>
+      <View>
+          <View style={[styles.header, {height: 30, marginBottom: 20, }]}>
+            <Icon
+              name='menu'
+              style={{marginLeft: 8, padding: 10, marginTop: 8}}
+              onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+            />
+          </View>
+          <ScrollView>
+            <View style={styles.pad}>
+              { 
+              ReminderList.map(({id,hour,date,title,subtitle}) => (
+                <TouchableWithoutFeedback key={id} onPress={() => navigation.navigate('Reminder')}>
+                  <View>
+                    <View style={styles.container}>
+                      <View style={{flex: 1,flexDirection: "row", justifyContent: "space-between", padding:1}}>
+                        <Text>{hour}</Text>
+                        <Text>{date}</Text>
+                      </View>
+                      <View>
+                        <Text style={styles.title}>{title}</Text>
+                      </View>
+                      <View style={{flex: 1,flexDirection: "row", justifyContent: "space-between", padding:5}}>
+                        <Text style={styles.text}>{subtitle}</Text>
+                        <TabBarIcon name="md-mail-unread"/>
+                      </View>
+                    </View>
+                    <Text style={{height:8, backgroundColor: 'rgba(0,0,0, 0.0)'}}></Text>
+                  </View>
+                </TouchableWithoutFeedback>
+              ))
+              }
             </View>
-          </TouchableWithoutFeedback>
-        ))
-        }
+          </ScrollView>    
       </View>
-    </ScrollView>
     )
   }
 }

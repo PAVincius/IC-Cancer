@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, TextInput, Button, Text, ActivityIndicator } from 'react-native';
+import { View, TextInput, Button, Text, ActivityIndicator, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Icon } from 'native-base';
 import { DrawerActions } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {LinearGradient} from 'expo-linear-gradient';
 
+import Colors from '../../constants/Colors';
 import styles from '../../constants/Styles';
 
 const PersonalInformation = ({navigation}) => {
@@ -27,14 +28,18 @@ const PersonalInformation = ({navigation}) => {
   });
 
   return(
-    <View style={styles.dataContainer}>
-      <View style={styles.header}>
+    <LinearGradient 
+      colors={[Colors.primary, Colors.secondaryLight]}
+      style={{flex:1}}>
+    <SafeAreaView style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+      <View style={[styles.header, {padding: 15, height: 50, backgroundColor: '#fff'}]}>
         <Icon
           name='menu'
+          style={{marginTop: 3}}
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
       </View>
-      <View style={[styles.dataMargin, {width: '100%'}]}>
+      <View style={[styles.dataMargin, {width: '96%'}]}>
         <Text style={styles.dataLabel}>
           Nome:
         </Text>
@@ -47,7 +52,7 @@ const PersonalInformation = ({navigation}) => {
             onChangeText={formik.handleChange('name')}
         />
       </View>
-      <View style={[styles.dataMargin, {width: '100%'}]}>
+      <View style={[styles.dataMargin, {width: '96%'}]}>
         <Text style={styles.dataLabel}>
           Genitor:
         </Text>
@@ -60,7 +65,7 @@ const PersonalInformation = ({navigation}) => {
             onChangeText={formik.handleChange('parentName')}
         />
       </View>
-      <View style={styles.dataMargin}>  
+      <View style={[styles.dataMargin, {width: '52%'}]}>  
         <Text style={styles.dataLabel}>
           Cartão do SUS:
         </Text>
@@ -73,7 +78,7 @@ const PersonalInformation = ({navigation}) => {
             onChangeText={formik.handleChange('sus')}
         />
       </View>
-      <View style={styles.dataMargin}>
+      <View style={[styles.dataMargin, {width: '42%'}]}>
         <Text style={styles.dataLabel}>
           CPF:
         </Text>
@@ -86,7 +91,7 @@ const PersonalInformation = ({navigation}) => {
             onChangeText={formik.handleChange('cpf')}
         />
       </View>
-      <View style={styles.dataMargin}>
+      <View style={[styles.dataMargin, {width: '26%'}]}>
         <Text style={styles.dataLabel}>
           RG:
         </Text>
@@ -112,7 +117,7 @@ const PersonalInformation = ({navigation}) => {
             onChangeText={formik.handleChange('dtEmissao')}
         />
       </View>
-      <View style={styles.dataMargin}>  
+      <View style={[styles.dataMargin, {width: '26%'}]}>  
         <Text style={styles.dataLabel}>
           Emissor:
         </Text>
@@ -151,7 +156,7 @@ const PersonalInformation = ({navigation}) => {
             onChangeText={formik.handleChange('age')}
         />
       </View>
-      <View style={styles.dataMargin}>
+      <View style={[styles.dataMargin, {width: '35%'}]}>
         <Text style={styles.dataLabel}>
           Gênero:
         </Text>
@@ -178,7 +183,7 @@ const PersonalInformation = ({navigation}) => {
         />
       </View>
       <TouchableOpacity onPress={formik.handleSubmit}
-          style={styles.StyledButton}
+          style={[styles.StyledButton, {marginLeft: '8%'}]}
       >
           {formik.isSubmitting ? (
               <ActivityIndicator color="#FFF" />
@@ -186,7 +191,8 @@ const PersonalInformation = ({navigation}) => {
               <Text style={styles.ButtonText}>Atualizar</Text>
           )}
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
+    </LinearGradient>
   );
 }  
 export default PersonalInformation;

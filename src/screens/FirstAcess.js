@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from '../../constants/Styles';
 
-const FirstAcess = () => {
-    const [state, setState] = useState(false)
+const FirstAcess = ({navigation}) => {
+    /*const [state, setState] = useState(false)
     const [, { login }] = useAuth()
 
     const formik = useFormik({
@@ -21,7 +21,7 @@ const FirstAcess = () => {
             setState('Login ou senha inválidos')
         }
         },
-    })
+    })*/
 
     return(
         <LinearGradient 
@@ -39,7 +39,8 @@ const FirstAcess = () => {
                         <View style={{flexDirection:'column'}}>
                             <Animatable.Text
                                 animation="bounceIn"
-                                style={}>
+                                //style={}
+                                >
                                     Digite seu nome de usuário:
                             </Animatable.Text>
                             <Animatable.View
@@ -60,7 +61,8 @@ const FirstAcess = () => {
                         <View style={{flexDirection:'column'}}>
                             <Animatable.Text 
                                 animation="bounceIn"
-                                style={}>
+                                //style={}
+                                >
                                     Digite a senha:
                                 </Animatable.Text>
                             <Animatable.View
@@ -81,7 +83,8 @@ const FirstAcess = () => {
                         <View style={{flexDirection:'column'}}>
                             <Animatable.Text 
                                 animation="bounceIn"
-                                style={}>
+                                //style={}
+                                >
                                     Confirme sua senha:
                                 </Animatable.Text>
                             <Animatable.View
