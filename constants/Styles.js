@@ -151,30 +151,9 @@ const styles = StyleSheet.create({
       marginTop: 5,
     },
     //P
-    primaryButton:{
+    defaultButton:{
       width: widthPercentageToDP('90%'),
       height: heightPercentageToDP('8%'),
-      backgroundColor: Colors.secondaryLight,
-      borderRadius: 20,
-      margin:5,
-      flexDirection: 'row',
-      alignContent: 'center',
-      alignItems: 'center',
-      justifyContent:'center',
-      shadowColor: '#000',
-      shadowOpacity: 0.9,
-      shadowRadius: 0.5,
-      shadowOffset: {
-       width: 3,
-       height: 3,
-     },
-      elevation: 5,
-      padding: 12
-    },
-    secondaryButton:{
-      width: widthPercentageToDP('90%'),
-      height: heightPercentageToDP('8%'),
-      backgroundColor: Colors.blue,
       borderRadius: 20,
       margin:5,
       flexDirection: 'row',

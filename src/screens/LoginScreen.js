@@ -88,7 +88,7 @@ const LoginScreen = ({navigation}) => {
                                     Primeiro acesso?</Animatable.Text>
                         </View>
                         <TouchableOpacity onPress={formik.handleSubmit}
-                            style={styles.secondaryButton}
+                            style={[styles.defaultButton, {backgroundColor: Colors.blue}]}
                         >
                             {formik.isSubmitting ? (
                                 <ActivityIndicator color="#FFF" />

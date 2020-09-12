@@ -179,7 +179,7 @@ const PersonalInformation = ({navigation}) => {
     </SafeAreaView>
     <View style={{alignItems:'center',flexDirection:'column', marginVertical:'4%'}}>
       <TouchableOpacity onPress={formik.handleSubmit}
-            style={[styles.primaryButton]}
+            style={[styles.defaultButton, {backgroundColor: Colors.secondaryLight}]}
         >
             {formik.isSubmitting ? (
                 <ActivityIndicator color="#FFF" />

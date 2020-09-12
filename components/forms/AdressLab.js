@@ -130,7 +130,7 @@ const AdressLab = ({navigation}) => {
         </SafeAreaView>
         <View style={{alignItems:'center',flexDirection:'column', marginVertical:'4%'}}>
           <TouchableOpacity onPress={formik.handleSubmit}
-                  style={[styles.secondaryButton]}
+                  style={[styles.defaultButton]}
               >
                   {formik.isSubmitting ? (
                       <ActivityIndicator color="#FFF" />

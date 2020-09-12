@@ -95,7 +95,7 @@ const Contact = ({navigation}) => {
             </SafeAreaView>
         <View style={{alignItems:'center', marginVertical:'4%'}}>
           <TouchableOpacity onPress={formik.handleSubmit}
-                  style={[styles.secondaryButton]}
+                  style={[styles.defaultButton,{backgroundColor: Colors.primary}]}
               >
                   {formik.isSubmitting ? (
                       <ActivityIndicator color="#FFF" />

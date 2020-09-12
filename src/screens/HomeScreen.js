@@ -10,6 +10,7 @@ import styles from '../../constants/Styles';
 import { useAuth } from '../auth';
 
 import CardMyData from '../../components/CardMyData';
+import Colors from '../../constants/Colors';
 
 export default function HomeScreen({navigation}) {
   const [, { logout }] = useAuth();
@@ -17,12 +18,16 @@ export default function HomeScreen({navigation}) {
   return (
     <ScrollView>
     <View style={{flex:1, alignItems: 'center', flexDirection: 'column'}}>
-        <View style={[styles.header, {padding: 15, height: 70, backgroundColor: '#fff'}]}>
-            <Icon
-                name='exit'
-                style={{marginTop: 10}}
-                onPress={ logout }
-            />
+        <View style={[styles.header, {padding: 15, height: 70, backgroundColor: '#fff', }]}>
+            <View style={{width: 40, backgroundColor: Colors. primary}}>
+                <Icon
+                    name='exit'
+                    style={{marginTop: 10}}
+                    onPress={ logout }
+                /> 
+                <Text>Sair</Text>
+            </View>
+            
         </View>
       <View style={stylesCard.container}>
           <TouchableOpacity style={stylesCard.card}

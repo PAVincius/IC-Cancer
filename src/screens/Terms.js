@@ -27,7 +27,7 @@ function Terms({navigation}){
                 </Text>
             </View>
             <View>
-                <TouchableOpacity onPress={()  => {navigation.navigate('Auth')}} style={styles.primaryButton}>
+                <TouchableOpacity onPress={()  => {navigation.navigate('Auth')}} style={[styles.defaultButton, {backgroundColor: Colors.secondaryLight}]}>
                     <View style={{margin:5}}>
                         <Text style={{textAlign:'center',color:Colors.white, fontWeight:'bold'}}>ACEITO COMPARTILHAR MEUS DADOS COM O MINISTÉRIO DA SAÚDE</Text>
                     </View>
