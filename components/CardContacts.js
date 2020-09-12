@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, ActivityIndicator, Image, SafeAreaView } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
+import Colors from '../constants/Colors';
+import { Icon } from 'native-base';
 
 export default class CardContacts extends PureComponent{
     
@@ -49,23 +51,22 @@ export default class CardContacts extends PureComponent{
                 start={{x: 1.2, y: 0.6}} end={{x: 0.1, y: 0.1}}
                 colors={[Colors.primary, Colors.secondaryLight]}
                 style={{padding: 5, flex: 1}}>
-            <SafeAreaView>
-            <FlatList 
-                data={items}
-                style={styles.container}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={this._renderItem}
-            />
-            <TouchableOpacity 
-                onPress={() => {navigation.navigate('Contatos')}}
-                style={styles.contactButton}    
-            >
-                <Image 
-                    source={require('../assets/images/SimboloMais.png')}
-                    style={styles.cardImage}
-                />
-            </TouchableOpacity>
-            </SafeAreaView>
+                <SafeAreaView>
+                    <FlatList 
+                        data={items}
+                        style={styles.container}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={this._renderItem}
+                    />
+                    <TouchableOpacity 
+                        onPress={() => {navigation.navigate('Contatos')}}
+                        style={styles.contactButton}    
+                    >
+                        <Icon
+                            name='add'
+                        />
+                    </TouchableOpacity>
+                </SafeAreaView>
             </LinearGradient>
         )
     }
@@ -91,7 +92,8 @@ const styles = StyleSheet.create({
            width: 3,
            height: 3
        },
-       borderRadius: 6
+       borderRadius: 6,
+       padding: 5
     },
     cardImage: {
         width: '90%',
@@ -109,6 +111,10 @@ const styles = StyleSheet.create({
         width: '20%',
         alignSelf: 'flex-end',
         marginBottom: '10%',
-        marginRight: 5
+        marginRight: 5,
+        backgroundColor: '#00BFFF',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 40,
     }
 })

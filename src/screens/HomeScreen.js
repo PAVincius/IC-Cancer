@@ -18,11 +18,11 @@ export default function HomeScreen({navigation}) {
     <ScrollView>
     <View style={{flex:1, alignItems: 'center', flexDirection: 'column'}}>
         <View style={[styles.header, {padding: 15, height: 70, backgroundColor: '#fff'}]}>
-                <Icon
-                    name='logout'
-                    style={{marginTop: 10}}
-                    onPress={ logout }
-                />
+            <Icon
+                name='exit'
+                style={{marginTop: 10}}
+                onPress={ logout }
+            />
         </View>
       <View style={stylesCard.container}>
           <TouchableOpacity style={stylesCard.card}
@@ -95,8 +95,7 @@ export default function HomeScreen({navigation}) {
 
 const stylesCard = StyleSheet.create({
   container: {
-      marginTop: 40
-
+      marginTop: 20
   },
   cardText: {
       fontSize: 16,
@@ -108,10 +107,11 @@ const stylesCard = StyleSheet.create({
      marginLeft: '2%',
      width: '96%',
      shadowColor: '#000',
-     shadowOpacity: 1,
+     shadowOpacity: 0.8,
+     shadowRadius: 0.1,
      shadowOffset: {
-         width: 3,
-         height: 3
+         width: 0,
+         height: 8
      },
      flexDirection: 'row',
      borderRadius: 6,

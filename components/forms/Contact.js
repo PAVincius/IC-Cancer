@@ -24,7 +24,7 @@ const Contact = ({navigation}) => {
     return(
         <LinearGradient
             start={{x: 1.2, y: 0.6}} end={{x: 0.1, y: 0.1}}
-            colors={['#fff',Colors.secondary]}
+            colors={['#fff',Colors.blue]}
             style={{flex:1}}>
             <SafeAreaView style={{flexDirection: 'row', flexWrap: 'wrap'}}>
                 <View style={[styles.dataMargin, {width: '96%'}]}>
@@ -95,7 +95,7 @@ const Contact = ({navigation}) => {
             </SafeAreaView>
         <View style={{alignItems:'center', marginVertical:'4%'}}>
           <TouchableOpacity onPress={formik.handleSubmit}
-                  style={[styles.primaryButton]}
+                  style={[styles.secondaryButton]}
               >
                   {formik.isSubmitting ? (
                       <ActivityIndicator color="#FFF" />
