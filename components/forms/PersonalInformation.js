@@ -33,13 +33,6 @@ const PersonalInformation = ({navigation}) => {
       colors={['#fff',Colors.secondary]}
       style={{flex:1}}>
     <SafeAreaView style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-      <View style={[styles.header, {padding: 15, height: 70, backgroundColor: '#fff'}]}>
-        <Icon
-          name='menu'
-          style={{marginTop: 10}}
-          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-        />
-      </View>
       <View style={[styles.dataMargin, {width: '96%'}]}>
         <Text style={styles.dataLabel}>
           Nome:

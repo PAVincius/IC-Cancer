@@ -83,7 +83,7 @@ const LoginScreen = ({navigation}) => {
                             <Animatable.Text
                                 animation="bounceIn"
                                 style={styles.subTextInput}
-                                onPress={() => {navigation.navigate('DrawerRoot')}}
+                                onPress={() => {navigation.navigate('')}}
                             >
                                     Primeiro acesso?</Animatable.Text>
                         </View>

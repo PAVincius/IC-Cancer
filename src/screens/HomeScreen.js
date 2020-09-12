@@ -8,16 +8,14 @@ import { Icon } from 'native-base';
 import { DrawerActions } from '@react-navigation/native';
 import styles from '../../constants/Styles';
 
+import CardMyData from '../../components/CardMyData';
+
 export default function HomeScreen({navigation}) {
 
   return (
     <View style={{flex:1, alignItems: 'center', flexDirection: 'column'}}>
-      <View style={[styles.header, {padding: 15, height: 70,backgroundColor: '#fff'}]}>
-        <Icon
-          name='menu'
-          style={{marginTop: 10}}
-          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-        />
+      <View style={{height: 60, marginTop: 40}}>
+      <CardMyData/>
       </View>
       <View>
         <Text style={styles.homeTitleText}>
@@ -59,6 +57,16 @@ export default function HomeScreen({navigation}) {
           />
         </View>
       </View>
+      <TouchableOpacity 
+          onPress={() => {navigation.navigate('CardContact')}}
+          style={styles.homeButton}
+      >
+           <Image
+             style={styles.imageHomeContainer}
+             source={require('../../assets/images/agenda.png')}
+             resizeMode='contain'
+          />
+      </TouchableOpacity>
     </View>
   );
 }
