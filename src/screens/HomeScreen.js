@@ -10,32 +10,35 @@ import styles from '../../constants/Styles';
 import { useAuth } from '../auth';
 
 import CardMyData from '../../components/CardMyData';
+import Colors from '../../constants/Colors';
 
 export default function HomeScreen({navigation}) {
   const [, { logout }] = useAuth();
 
   return (
-    <ScrollView>
     <View style={{flex:1, alignItems: 'center', flexDirection: 'column'}}>
-        <View style={[styles.header, {padding: 15, height: 70, backgroundColor: '#fff'}]}>
-            <Icon
-                name='exit'
-                style={{marginTop: 10}}
-                onPress={ logout }
-            />
+        <View style={[styles.header, {padding: 15, height: 80, backgroundColor: '#fff',}]}>
+            <View style={{width: 40 }}>
+                <Icon
+                    name='exit'
+                    style={{marginTop: 10}}
+                    onPress={ logout }
+                />
+                <Text>Sair</Text>
+            </View>
         </View>
+      <ScrollView>
       <View style={stylesCard.container}>
           <TouchableOpacity style={stylesCard.card}
-              onPress={() => {navigation.navigate('Informações Pessoais')}}
-          >
-              <View>
-                  <Text style={stylesCard.cardText}>Olá, Rodrigo Santos</Text>
-                  <Text style={stylesCard.cardText}>CPF: 923.884.721-28</Text>
-              </View>
-              <Image
-                  source={require('../../assets/images/user.png')}
-                  style={stylesCard.cardImage}
-              />
+              onPress={() => {navigation.navigate('Informações Pessoais')}}>
+            <View>
+                <Text style={stylesCard.cardText}>Olá, Rodrigo Santos</Text>
+                <Text style={stylesCard.cardText}>CPF: 923.884.721-28</Text>
+            </View>
+            <Image
+                source={require('../../assets/images/user.png')}
+                style={stylesCard.cardImage}
+            />
           </TouchableOpacity>
       </View>
       <View>
@@ -48,37 +51,45 @@ export default function HomeScreen({navigation}) {
       </View>
       <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
         <View style={styles.homeButton}>
-          <Image
+          <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
+            <Image
             style={styles.imageHomeContainer}
             source={require('../../assets/images/icon1.png')}
             resizeMode='contain'
-          />
+            />
+          </TouchableOpacity>
         </View>
         <View style={styles.homeButton}>
-          <Image
-             style={styles.imageHomeContainer}
-             source={require('../../assets/images/icon2.png')}
-             resizeMode='contain'
-          />
+          <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
+            <Image
+              style={styles.imageHomeContainer}
+              source={require('../../assets/images/icon2.png')}
+              resizeMode='contain'
+              />
+          </TouchableOpacity>
         </View>
       </View>
       <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
         <View style={styles.homeButton}>
-          <Image
-             style={styles.imageHomeContainer}
-             source={require('../../assets/images/icon3.png')}
-             resizeMode='contain'
-          />
+          <TouchableOpacity onPress={() => {navigation.navigate('Canal Aberto')}}>
+            <Image
+              style={styles.imageHomeContainer}
+              source={require('../../assets/images/icon3.png')}
+              resizeMode='contain'
+            />
+          </TouchableOpacity>
         </View>
         <View style={styles.homeButton}>
-          <Image
-             style={styles.imageHomeContainer}
-             source={require('../../assets/images/icon4.png')}
-             resizeMode='contain'
-          />
+          <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
+            <Image
+              style={styles.imageHomeContainer}
+              source={require('../../assets/images/icon4.png')}
+              resizeMode='contain'
+            />
+          </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity 
+      <TouchableOpacity
           onPress={() => {navigation.navigate('Agenda')}}
           style={styles.homeButton}
       >
@@ -88,14 +99,15 @@ export default function HomeScreen({navigation}) {
              resizeMode='contain'
           />
       </TouchableOpacity>
+      </ScrollView>
     </View>
-    </ScrollView>
   );
 };
 
 const stylesCard = StyleSheet.create({
   container: {
-      marginTop: 20
+      marginTop: 20,
+      width: '90%',
   },
   cardText: {
       fontSize: 16,
@@ -104,8 +116,7 @@ const stylesCard = StyleSheet.create({
   card: {
      backgroundColor: '#fff',
      marginBottom: 10,
-     marginLeft: '2%',
-     width: '96%',
+     width: '100%',
      shadowColor: '#000',
      shadowOpacity: 0.8,
      shadowRadius: 0.1,
@@ -118,11 +129,12 @@ const stylesCard = StyleSheet.create({
      padding: 5
   },
   cardImage: {
-      width: '20%',
+      width: '16%',
       height: 60,
       resizeMode: 'cover',
-      borderRadius: 50,
-      alignSelf: 'center'
+      borderRadius: 60,
+      alignSelf: 'center',
+      marginLeft: '30%'
   },
   loader: {
       flex: 1,

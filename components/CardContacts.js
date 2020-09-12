@@ -74,7 +74,7 @@ export default class CardContacts extends PureComponent{
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 40,
+        marginTop: 30,
         padding: 5
     },
     cardText: {

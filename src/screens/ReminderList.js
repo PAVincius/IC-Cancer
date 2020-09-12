@@ -1,4 +1,3 @@
-
 import React,{Component} from 'react';
 import { View, Text, TouchableWithoutFeedback, FlatList, StyleSheet, useContext, ScrollView, Button} from 'react-native';
 import TabBarIcon from '../../components/TabBarIcon';
@@ -6,6 +5,7 @@ import axios from 'axios';
 import Colors from '../../constants/Colors';
 import { Icon } from 'native-base';
 import { DrawerActions } from '@react-navigation/native';
+import { useAuth } from '../auth';
 
 export default class ReminderList extends Component {
   state = {
@@ -21,12 +21,22 @@ export default class ReminderList extends Component {
 
   render() {
    const {ReminderList} = this.state;
-   const navigation = (this.props.navigation)
+   const navigation = (this.props.navigation);
+   const [, { logout }] = useAuth();
    return (
       <View>
+          <View style={[styles.header, {padding: 15, height: 80, backgroundColor: '#fff'}]}>
+            <View style={{width: 40 }}>
+                <Icon
+                    name='exit'
+                    style={{marginTop: 10}}
+                />
+                <Text>Sair</Text>
+            </View>
+        </View>
           <ScrollView>
             <View style={styles.pad}>
-              { 
+              {
               ReminderList.map(({id,hour,date,title,subtitle}) => (
                 <TouchableWithoutFeedback key={id} onPress={() => navigation.navigate('Reminder')}>
                   <View>
@@ -49,7 +59,7 @@ export default class ReminderList extends Component {
               ))
               }
             </View>
-          </ScrollView>    
+          </ScrollView>
       </View>
     )
   }
