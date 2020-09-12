@@ -1,10 +1,10 @@
 {
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 2064,
   "expoServerNgrokUrl": "https://gn-k8i.anonymous.ic-cancer-jan.exp.direct",
   "packagerNgrokUrl": "https://packager.gn-k8i.anonymous.ic-cancer-jan.exp.direct",
-  "ngrokPid": 17140,
-  "packagerPort": 19001,
-  "packagerPid": 2692,
-  "webpackServerPort": null,
-  "devToolsPort": 19002
+  "ngrokPid": 3016,
+  "webpackServerPort": null
 }

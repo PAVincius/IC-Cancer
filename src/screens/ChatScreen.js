@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import { StyleSheet, Vibration, View, Platform } from 'react-native';
+import { StyleSheet, Vibration, View, Platform, Text } from 'react-native';
 
-import { Icon } from 'react-native-elements';
+import { Icon } from 'native-base';
 import { GiftedChat, Bubble, Send, MessageText, SystemMessage, Day } from 'react-native-gifted-chat';
 import { withTheme } from 'react-native-paper';
 
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
+import { useAuth } from '../auth';
+import styles from '../../constants/Styles';
 
 import 'moment/locale/pt-br';
+
+
 
 class Chat extends Component {
   constructor(props) {
@@ -192,7 +196,7 @@ class Chat extends Component {
             name='paper-plane'
             type='font-awesome'
             color={this.props.theme.colors.primary}
-            style={styles.sendIcon}
+            style={Styles1.sendIcon}
           />
         </View>
       </Send>
@@ -200,8 +204,19 @@ class Chat extends Component {
   }
 
   render() {
+    //const [, { logout }] = useAuth();
     return (
       <View style={{ flex: 1 }}>
+        <View style={[styles.header, {padding: 10, height: 70, backgroundColor: '#fff', }]}>
+              <View style={{width: 60, height: 50, marginTop: 5, flexDirection: 'row', flexWrap: 'wrap'}}>
+                  <Icon
+                      name='exit'
+                      style={{marginTop: 10}}
+                      //onPress={ logout }
+                  /> 
+                  <Text style={{ marginLeft: 5, marginTop: 15, fontWeight: 'bold'}}>Sair</Text>
+              </View>
+        </View>
         <GiftedChat
           locale="pt-br"
           onSend={messages => this.onSend(messages)}
@@ -237,7 +252,7 @@ class Chat extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+const Styles1 = StyleSheet.create({
   sendIcon: {
     color: '#3A97F9'
   }
