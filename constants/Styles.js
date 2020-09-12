@@ -100,12 +100,12 @@ const styles = StyleSheet.create({
       color: '#2e78b7',
     },
     homeButton:{
-      margin: 15,
+      margin: 10,
       borderRadius: 10,
       backgroundColor: Colors.white,
       alignItems: 'center',
-      width: widthPercentageToDP('40%'),
-      height: heightPercentageToDP('20%'),
+      width: widthPercentageToDP('30%'),
+      height: heightPercentageToDP('15%'),
       shadowColor: '#000',
       shadowOpacity: 0.8,
       shadowRadius: 0.1,
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
        width: 0,
        height: 8,
      },
-      elevation: 7,
+      elevation: 3,
     },
     homeTitleText:{
       color: Colors.blue,
@@ -139,11 +139,11 @@ const styles = StyleSheet.create({
     },
     imageHomeContainer: {
       resizeMode: 'contain',
-      height: heightPercentageToDP('20%'),
+      height: heightPercentageToDP('12.5%'),
     },
     //M
     marginBasic: {
-      margin: 10,
+      margin: 20,
       justifyContent: 'flex-start'
     },
     //N

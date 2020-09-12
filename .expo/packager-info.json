@@ -1,10 +1,10 @@
 {
-  "devToolsPort": 19003,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 23683,
+  "packagerPid": 42617,
   "expoServerNgrokUrl": "https://eb-pwz.janeduardo.vinicius.exp.direct",
   "packagerNgrokUrl": "https://packager.eb-pwz.janeduardo.vinicius.exp.direct",
-  "ngrokPid": 23756,
+  "ngrokPid": 42650,
   "webpackServerPort": null
 }

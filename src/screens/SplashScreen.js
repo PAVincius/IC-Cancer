@@ -22,7 +22,7 @@ const SplashScreen = ({navigation}) => {
                     delay={2000}
                     style={styles.imageContainerGreat}
                     onAnimationEnd={()=> {navigation.navigate('Terms')}}
-                    source={require('../../assets/images/splashScreen.png')}
+                    source={require('../../assets/images/splashScreenNova.png')}
                 />
             </SafeAreaView>
         </LinearGradient>

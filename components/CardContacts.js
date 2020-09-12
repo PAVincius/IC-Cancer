@@ -22,7 +22,7 @@ export default class CardContacts extends PureComponent{
         const res = await fetch(endpoint)
         const data = await res.json()
         this.setState({items: data})
-    }
+    }   
 
 
     _renderItem = ({item, index}) => {
@@ -52,20 +52,24 @@ export default class CardContacts extends PureComponent{
                 colors={[Colors.primary, Colors.secondaryLight]}
                 style={{padding: 5, flex: 1}}>
                 <SafeAreaView>
-                    <FlatList 
-                        data={items}
-                        style={styles.container}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={this._renderItem}
-                    />
-                    <TouchableOpacity 
-                        onPress={() => {navigation.navigate('Contatos')}}
-                        style={styles.contactButton}    
-                    >
-                        <Icon
-                            name='add'
+                    <View>
+                        <FlatList 
+                            data={items}
+                            style={styles.container}
+                            keyExtractor={(item, index) => index.toString()}
+                            renderItem={this._renderItem}
                         />
-                    </TouchableOpacity>
+                    </View>
+                    <View style={{alignSelf: 'flex-end', width: '20%', marginTop: '70%'}}>
+                        <TouchableOpacity 
+                            onPress={() => {navigation.navigate('Contatos')}}
+                            style={styles.contactButton}    
+                        >
+                            <Icon
+                                name='add'
+                            />
+                        </TouchableOpacity>
+                    </View>
                 </SafeAreaView>
             </LinearGradient>
         )
@@ -75,25 +79,27 @@ export default class CardContacts extends PureComponent{
 const styles = StyleSheet.create({
     container: {
         marginTop: 30,
-        padding: 5
+        padding: 5,
     },
     cardText: {
         fontSize: 16,
         padding: 10
     },
     card: {
-       backgroundColor: '#fff',
-       marginBottom: 10,
-       marginLeft: '2%',
-       width: '96%',
-       shadowColor: '#000',
-       shadowOpacity: 1,
-       shadowOffset: {
-           width: 3,
-           height: 3
-       },
-       borderRadius: 6,
-       padding: 5
+        backgroundColor: '#fff',
+        marginBottom: 10,
+        marginLeft: '2%',
+        width: '96%',
+        shadowColor: '#000',
+        shadowOpacity: 0.8,
+        shadowRadius: 0.1,
+        shadowOffset: {
+            width: 0,
+            height: 8,
+        },
+        elevation: 3,
+        borderRadius: 6,
+        padding: 5
     },
     cardImage: {
         width: '90%',
@@ -108,11 +114,11 @@ const styles = StyleSheet.create({
     },
     contactButton: {
         height: 60,
-        width: '20%',
+        width: '100%',
         alignSelf: 'flex-end',
         marginBottom: '10%',
         marginRight: 5,
-        backgroundColor: '#00BFFF',
+        backgroundColor: Colors.blue,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 40,

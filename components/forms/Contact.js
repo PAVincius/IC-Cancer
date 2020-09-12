@@ -100,7 +100,7 @@ const Contact = ({navigation}) => {
                   {formik.isSubmitting ? (
                       <ActivityIndicator color="#FFF" />
                   ) : (
-                      <Text style={styles.ButtonText}>Atualizar</Text>
+                      <Text style={styles.ButtonText}>Adicionar</Text>
                   )}
           </TouchableOpacity>
         </View>
