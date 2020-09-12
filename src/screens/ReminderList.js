@@ -24,13 +24,6 @@ export default class ReminderList extends Component {
    const navigation = (this.props.navigation)
    return (
       <View>
-          <View style={[styles.header, {height: 30, marginBottom: 20, }]}>
-            <Icon
-              name='menu'
-              style={{marginLeft: 8, padding: 10, marginTop: 8}}
-              onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-            />
-          </View>
           <ScrollView>
             <View style={styles.pad}>
               { 

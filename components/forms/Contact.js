@@ -24,22 +24,15 @@ const Contact = ({navigation}) => {
     return(
         <LinearGradient
             start={{x: 1.2, y: 0.6}} end={{x: 0.1, y: 0.1}}
-            colors={['#fff',Colors.secondary]}
+            colors={['#fff',Colors.blue]}
             style={{flex:1}}>
             <SafeAreaView style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                <View style={[styles.header, {padding: 15, height: 70, backgroundColor: '#fff'}]}>
-                    <Icon
-                        name='menu'
-                        style={{marginTop: 10}}
-                        onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-                    />
-                </View>
                 <View style={[styles.dataMargin, {width: '96%'}]}>
                     <Text style={styles.dataLabel}>
-                        E-mail:
+                        Nome:
                     </Text>
                     <TextInput  style={styles.dataInput}
-                        placeholder={'E-mail'}
+                        placeholder={'Nome'}
                         secureTextEntry={false}
                         underlineColorAndroid='transparent'
                         placeholderTextColor={Colors.placeHolderColor}
@@ -102,7 +95,7 @@ const Contact = ({navigation}) => {
             </SafeAreaView>
         <View style={{alignItems:'center', marginVertical:'4%'}}>
           <TouchableOpacity onPress={formik.handleSubmit}
-                  style={[styles.primaryButton]}
+                  style={[styles.secondaryButton]}
               >
                   {formik.isSubmitting ? (
                       <ActivityIndicator color="#FFF" />

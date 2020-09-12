@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, Button, Text, ActivityIndicator, SafeAreaView } from 'react-native';
+import { View, TextInput, Button, Text, ActivityIndicator, SafeAreaView, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -33,13 +33,6 @@ const PersonalInformation = ({navigation}) => {
       colors={['#fff',Colors.secondary]}
       style={{flex:1}}>
     <SafeAreaView style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-      <View style={[styles.header, {padding: 15, height: 70, backgroundColor: '#fff'}]}>
-        <Icon
-          name='menu'
-          style={{marginTop: 10}}
-          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-        />
-      </View>
       <View style={[styles.dataMargin, {width: '96%'}]}>
         <Text style={styles.dataLabel}>
           Nome:

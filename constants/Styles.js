@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     homeTitleText:{
       color: Colors.blue,
       fontSize: heightPercentageToDP('4.5%'),
-      marginTop: heightPercentageToDP('4%')
+      marginTop: heightPercentageToDP('1%')
     },
     //I
     imageContainer: {
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     },
     //M
     marginBasic: {
-      margin: 10,
+      margin: 20,
       justifyContent: 'flex-start'
     },
     //N
@@ -169,6 +169,27 @@ const styles = StyleSheet.create({
        height: 3,
      },
       elevation: 5,
+      padding: 12
+    },
+    termsButton:{
+      width: widthPercentageToDP('85%'),
+      height: heightPercentageToDP('7%'),
+      backgroundColor: Colors.secondaryLight,
+      borderRadius: 30,
+      margin:5,
+      flexDirection: 'row',
+      alignContent: 'center',
+      alignItems: 'center',
+      justifyContent:'center',
+      shadowColor: '#000',
+      shadowOpacity: 0.9,
+      shadowRadius: 0.5,
+      shadowOffset: {
+       width: 3,
+       height: 3,
+     },
+      elevation: 5,
+      padding: 10
     },
     secondaryButton:{
       width: widthPercentageToDP('90%'),
@@ -188,6 +209,7 @@ const styles = StyleSheet.create({
        height: 3,
      },
       elevation: 5,
+      padding: 12
     },
     //S
     SafeView:{

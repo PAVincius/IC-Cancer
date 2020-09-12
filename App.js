@@ -11,13 +11,19 @@ import LoginScreen from './src/screens/LoginScreen';
 import Terms from './src/screens/Terms';
 import Reminder from './src/screens/Reminder';
 import ReminderList from './src/screens/ReminderList';
+import Contact from './components/forms/Contact';
+import PersonalInformation from './components/forms/PersonalInformation'
 
 import useCachedResources from './hooks/useCachedResources';
 //import ThemeContext from './assets/context/ThemeContext';
-import DrawerNavigator from './navigation/DrawerNavigator';
+//import DrawerNavigator from './navigation/DrawerNavigator';
+import BottomTabNavigator from './navigation/BottomTabNavigator'
 import { StoreProvider } from './src/store';
 import { useStore } from './src/store';
 import FirstAcess from './src/screens/FirstAcess';
+import CardContacts from './components/CardContacts';
+import CardMyData from './components/CardMyData';
+import HomeScreen from './src/screens/HomeScreen';
 
 const theme = {
   ...DefaultTheme,
@@ -55,7 +61,7 @@ const Router = () => {
       return <Loading/>
   }
 
-  return store.auth ? <DrawerNavigator/> : <LoginScreen/>
+  return store.auth ? <BottomTabNavigator/> : <LoginScreen/>
 }
 
 const Stack = createStackNavigator();
@@ -77,9 +83,15 @@ export default function App() {
               <Stack.Screen options={{headerShown: false}} name="SplashScreen" component={SplashScreen}/>
               <Stack.Screen options={{headerShown: false}} name="Terms" component={Terms}/>
               <Stack.Screen options={{headerShown: false}} name="Auth" component={Router} />
+              <Stack.Screen options={{headerShown: false}} name="Login" component={LoginScreen} />
               <Stack.Screen options={{headerShown: false}} name="Reminder" component={Reminder} />
               <Stack.Screen options={{headerShown: false}} name="ReminderList" component={ReminderList} />
+              <Stack.Screen name="Agenda" component={CardContacts} />
+              <Stack.Screen options={{headerShown: false}} name="CardMyData" component={CardMyData} />
               <Stack.Screen options={{headerShown: false}} name="FirstAcess" component={FirstAcess} />
+              <Stack.Screen name="Informações Pessoais" component={PersonalInformation} />
+              <Stack.Screen name="Contatos" component={Contact} />
+              <Stack.Screen options={{headerShown: false}} name="Home" component={HomeScreen} />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>
