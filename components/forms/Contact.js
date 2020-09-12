@@ -29,10 +29,10 @@ const Contact = ({navigation}) => {
             <SafeAreaView style={{flexDirection: 'row', flexWrap: 'wrap'}}>
                 <View style={[styles.dataMargin, {width: '96%'}]}>
                     <Text style={styles.dataLabel}>
-                        E-mail:
+                        Nome:
                     </Text>
                     <TextInput  style={styles.dataInput}
-                        placeholder={'E-mail'}
+                        placeholder={'Nome'}
                         secureTextEntry={false}
                         underlineColorAndroid='transparent'
                         placeholderTextColor={Colors.placeHolderColor}

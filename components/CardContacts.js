@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, ActivityIndicator, Image, SafeAreaView } from 'react-native';
+import {LinearGradient} from 'expo-linear-gradient';
 
 export default class CardContacts extends PureComponent{
     
@@ -44,26 +45,36 @@ export default class CardContacts extends PureComponent{
         }
 
         return(
-            <View style={styles.container}>
+            <LinearGradient
+                start={{x: 1.2, y: 0.6}} end={{x: 0.1, y: 0.1}}
+                colors={[Colors.primary, Colors.secondaryLight]}
+                style={{padding: 5, flex: 1}}>
+            <SafeAreaView>
             <FlatList 
                 data={items}
+                style={styles.container}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={this._renderItem}
             />
-            <TouchableOpacity onPress={() => {navigation.navigate('Contact')}}>
+            <TouchableOpacity 
+                onPress={() => {navigation.navigate('Contatos')}}
+                style={styles.contactButton}    
+            >
                 <Image 
                     source={require('../assets/images/SimboloMais.png')}
                     style={styles.cardImage}
                 />
             </TouchableOpacity>
-            </View>
+            </SafeAreaView>
+            </LinearGradient>
         )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 40
+        marginTop: 40,
+        padding: 5
     },
     cardText: {
         fontSize: 16,
@@ -83,13 +94,21 @@ const styles = StyleSheet.create({
        borderRadius: 6
     },
     cardImage: {
-        width: '10%',
-        height: 20,
-        resizeMode: 'cover'
+        width: '90%',
+        height: 60,
+        resizeMode: 'cover',
+        alignSelf: 'center'
     },
     loader: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    contactButton: {
+        height: 60,
+        width: '20%',
+        alignSelf: 'flex-end',
+        marginBottom: '10%',
+        marginRight: 5
     }
 })

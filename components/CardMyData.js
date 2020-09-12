@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, FlatList, ActivityIndicator, Image } from 'react-native';
 
-export default class CardContacts extends PureComponent{
+export default class CardMyData extends PureComponent{
     
     constructor(props) {
         super(props)
         this.state = {
-            items: []
+            item: []
         }
     }
 
@@ -18,14 +18,14 @@ export default class CardContacts extends PureComponent{
         const endpoint = 'https://5f496b5a8e271c001650c9d7.mockapi.io/api/v1/users'
         const res = await fetch(endpoint)
         const data = await res.json()
-        this.setState({items: data})
+        this.setState({item: data})
     }
 
     render(){
-        let {items} = this.state
+        let {item} = this.state
         const navigation = (this.props.navigation)
 
-        if(items.length === 0) {
+        if(item.length === 0) {
             return(
                 <View style={styles.loader}>
                     <ActivityIndicator size="large"/>
@@ -34,11 +34,13 @@ export default class CardContacts extends PureComponent{
         }
 
         return(
-            <View style={styles.cardText}>
-                <TouchableOpacity style={styles.card}>
+            <View style={styles.container}>
+                <TouchableOpacity style={styles.card}
+                    onPress={() => {navigation.navigate('PersonalInfo')}}
+                >
                     <View>
-                        <Text style={styles.cardText}> Olá, {item.name}</Text>
-                        <Text style={styles.cardText}>CPF: {item.cpf}</Text>
+                        <Text style={styles.cardText}>Olá, Rodrigo Santos</Text>
+                        <Text style={styles.cardText}>CPF: 923.884.721-28</Text>
                     </View>
                     <Image
                         source={require('../assets/images/user.png')}
@@ -52,11 +54,11 @@ export default class CardContacts extends PureComponent{
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 40
+        marginTop: 2
     },
     cardText: {
         fontSize: 16,
-        padding: 10
+        padding: 6
     },
     card: {
        backgroundColor: '#fff',
@@ -70,13 +72,14 @@ const styles = StyleSheet.create({
            height: 3
        },
        flexDirection: 'row',
-       borderRadius: 6
+       borderRadius: 6,
     },
     cardImage: {
-        width: '10%',
-        height: 20,
+        width: '25%',
+        height: 60,
         resizeMode: 'cover',
-        borderRadius: 50
+        borderRadius: 50,
+        alignSelf: 'center'
     },
     loader: {
         flex: 1,

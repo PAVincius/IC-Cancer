@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     homeTitleText:{
       color: Colors.blue,
       fontSize: heightPercentageToDP('4.5%'),
-      marginTop: heightPercentageToDP('4%')
+      marginTop: heightPercentageToDP('2%')
     },
     //I
     imageContainer: {
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
        height: 3,
      },
       elevation: 5,
+      padding: 12
     },
     secondaryButton:{
       width: widthPercentageToDP('90%'),

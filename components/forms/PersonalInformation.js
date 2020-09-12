@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, Button, Text, ActivityIndicator, SafeAreaView } from 'react-native';
+import { View, TextInput, Button, Text, ActivityIndicator, SafeAreaView, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';

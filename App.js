@@ -12,6 +12,7 @@ import Terms from './src/screens/Terms';
 import Reminder from './src/screens/Reminder';
 import ReminderList from './src/screens/ReminderList';
 import Contact from './components/forms/Contact';
+import PersonalInformation from './components/forms/PersonalInformation'
 
 import useCachedResources from './hooks/useCachedResources';
 //import ThemeContext from './assets/context/ThemeContext';
@@ -21,6 +22,8 @@ import { StoreProvider } from './src/store';
 import { useStore } from './src/store';
 import FirstAcess from './src/screens/FirstAcess';
 import CardContacts from './components/CardContacts';
+import CardMyData from './components/CardMyData';
+import HomeScreen from './src/screens/HomeScreen';
 
 const theme = {
   ...DefaultTheme,
@@ -80,11 +83,15 @@ export default function App() {
               <Stack.Screen options={{headerShown: false}} name="SplashScreen" component={SplashScreen}/>
               <Stack.Screen options={{headerShown: false}} name="Terms" component={Terms}/>
               <Stack.Screen options={{headerShown: false}} name="Auth" component={Router} />
+              <Stack.Screen options={{headerShown: false}} name="Login" component={LoginScreen} />
               <Stack.Screen options={{headerShown: false}} name="Reminder" component={Reminder} />
               <Stack.Screen options={{headerShown: false}} name="ReminderList" component={ReminderList} />
-              <Stack.Screen options={{headerShown: false}} name="CardContact" component={CardContacts} />
+              <Stack.Screen name="Agenda" component={CardContacts} />
+              <Stack.Screen options={{headerShown: false}} name="CardMyData" component={CardMyData} />
               <Stack.Screen options={{headerShown: false}} name="FirstAcess" component={FirstAcess} />
-              <Stack.Screen options={{headerShown: false}} name="Contact" component={Contact} />
+              <Stack.Screen name="Informações Pessoais" component={PersonalInformation} />
+              <Stack.Screen name="Contatos" component={Contact} />
+              <Stack.Screen options={{headerShown: false}} name="Home" component={HomeScreen} />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>
