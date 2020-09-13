@@ -129,9 +129,8 @@ const styles = StyleSheet.create({
     },
     imageContainerGreat: {
       resizeMode: 'contain',
-      height: heightPercentageToDP('70%'),
-      marginBottom: '20%',
-      marginTop: '20%'
+      height: heightPercentageToDP('90%'),
+      alignContent: 'center'
     },
     imageContainerMedium: {
       resizeMode: 'contain',

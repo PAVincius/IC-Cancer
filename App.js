@@ -9,6 +9,7 @@ import { styled } from 'styled-components';
 import SplashScreen from './src/screens/SplashScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import Terms from './src/screens/Terms';
+import Terms2 from './src/screens/Terms2';
 import Reminder from './src/screens/Reminder';
 import ReminderList from './src/screens/ReminderList';
 import Contact from './components/forms/Contact';
@@ -52,7 +53,7 @@ const Loading = () =>{
       flex: 1;
       color: #43bc70;
     `
-} 
+}
 
 const Router = () => {
   const [store] = useStore();
@@ -82,6 +83,7 @@ export default function App() {
             <Stack.Navigator initialRouteName={SplashScreen}>
               <Stack.Screen options={{headerShown: false}} name="SplashScreen" component={SplashScreen}/>
               <Stack.Screen options={{headerShown: false}} name="Terms" component={Terms}/>
+              <Stack.Screen options={{headerShown: false}} name="Terms2" component={Terms2}/>
               <Stack.Screen options={{headerShown: false}} name="Auth" component={Router} />
               <Stack.Screen options={{headerShown: false}} name="Login" component={LoginScreen} />
               <Stack.Screen options={{headerShown: false}} name="Reminder" component={Reminder} />

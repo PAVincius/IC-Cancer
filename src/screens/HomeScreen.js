@@ -27,79 +27,92 @@ export default function HomeScreen({navigation}) {
                 <Text>Sair</Text>
             </View>
         </View>
-      <ScrollView>
-      <View style={stylesCard.container}>
-          <TouchableOpacity style={stylesCard.card}
-              onPress={() => {navigation.navigate('Informações Pessoais')}}>
-            <View>
-                <Text style={stylesCard.cardText}>Olá, Rodrigo Santos</Text>
-                <Text style={stylesCard.cardText}>CPF: 923.884.721-28</Text>
+        <ScrollView>
+            <View style={stylesCard.container}>
+                <TouchableOpacity style={stylesCard.card}
+                    onPress={() => {navigation.navigate('Informações Pessoais')}}>
+                  <View>
+                      <Text style={stylesCard.cardText}>Olá, Eliane Santos</Text>
+                      <Text style={stylesCard.cardText}>CPF: 923.884.721-28</Text>
+                  </View>
+                  <Image
+                      source={require('../../assets/images/user.png')}
+                      style={stylesCard.cardImage}
+                  />
+                </TouchableOpacity>
             </View>
-            <Image
-                source={require('../../assets/images/user.png')}
-                style={stylesCard.cardImage}
-            />
-          </TouchableOpacity>
-      </View>
-      <View>
-        <Text style={styles.homeTitleText}>
-          Bem vinda !
-        </Text>
-        <Text>
-          Enquanto esteve fora:
-        </Text>
-      </View>
-      <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
-        <View style={styles.homeButton}>
-          <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
-            <Image
-            style={styles.imageHomeContainer}
-            source={require('../../assets/images/icon1.png')}
-            resizeMode='contain'
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.homeButton}>
-          <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
-            <Image
-              style={styles.imageHomeContainer}
-              source={require('../../assets/images/icon2.png')}
-              resizeMode='contain'
-              />
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
-        <View style={styles.homeButton}>
-          <TouchableOpacity onPress={() => {navigation.navigate('Canal Aberto')}}>
-            <Image
-              style={styles.imageHomeContainer}
-              source={require('../../assets/images/icon3.png')}
-              resizeMode='contain'
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.homeButton}>
-          <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
-            <Image
-              style={styles.imageHomeContainer}
-              source={require('../../assets/images/icon4.png')}
-              resizeMode='contain'
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
-      <TouchableOpacity
-          onPress={() => {navigation.navigate('Agenda')}}
-          style={styles.homeButton}
-      >
-           <Image
-             style={[styles.imageHomeContainer, {height: '75%', marginTop: 15}]}
-             source={require('../../assets/images/agenda.png')}
-             resizeMode='contain'
-          />
-      </TouchableOpacity>
-      </ScrollView>
+            <View style={{alignSelf: 'center'}}>
+              <Text style={styles.homeTitleText}>
+                Bem vinda !
+              </Text>
+              <Text>
+                Enquanto esteve fora:
+              </Text>
+            </View>
+            <View style={{flexDirection: 'row', alignSelf: 'center'}}>
+              <View style={styles.homeButton}>
+                <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
+                  <Image
+                  style={styles.imageHomeContainer}
+                  source={require('../../assets/images/icon1.png')}
+                  resizeMode='contain'
+                  />
+                </TouchableOpacity>
+              </View>
+              <View style={styles.homeButton}>
+                <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
+                  <Image
+                    style={styles.imageHomeContainer}
+                    source={require('../../assets/images/icon2.png')}
+                    resizeMode='contain'
+                    />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={{flexDirection: 'row', alignSelf: 'center'}}>
+              <View style={styles.homeButton}>
+                <TouchableOpacity onPress={() => {navigation.navigate('Canal Aberto')}}>
+                  <Image
+                    style={styles.imageHomeContainer}
+                    source={require('../../assets/images/icon3.png')}
+                    resizeMode='contain'
+                  />
+                </TouchableOpacity>
+              </View>
+              <View style={styles.homeButton}>
+                <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
+                  <Image
+                    style={styles.imageHomeContainer}
+                    source={require('../../assets/images/icon4.png')}
+                    resizeMode='contain'
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={{alignSelf: 'center'}}>
+              <Text style={styles.homeTitleText}>Outros serviços:</Text>
+            </View>
+            <View>
+              <TouchableOpacity
+                  onPress={() => {navigation.navigate('Agenda')}}
+                  style={[styles.homeButton, {marginLeft: '14%'}]}
+              >
+                <Image
+                  style={[styles.imageHomeContainer, {height: '75%', marginTop: 10}]}
+                  source={require('../../assets/images/agenda.png')}
+                  resizeMode='contain'
+                />
+              </TouchableOpacity>
+            </View>
+            <TouchableOpacity
+                onPress={() => {navigation.navigate('SplashScreen')}}
+                style={styles.contactButton}
+            >
+                <Icon
+                    name='add'
+                />
+            </TouchableOpacity>
+        </ScrollView>
     </View>
   );
 };
@@ -107,7 +120,7 @@ export default function HomeScreen({navigation}) {
 const stylesCard = StyleSheet.create({
   container: {
       marginTop: 20,
-      width: '90%',
+      width: '96%',
   },
   cardText: {
       fontSize: 16,
@@ -129,12 +142,12 @@ const stylesCard = StyleSheet.create({
      padding: 5
   },
   cardImage: {
-      width: '16%',
+      width: '24%',
       height: 60,
       resizeMode: 'cover',
-      borderRadius: 60,
+      borderRadius: 50,
       alignSelf: 'center',
-      marginLeft: '30%'
+      marginLeft: '17%'
   },
   loader: {
       flex: 1,

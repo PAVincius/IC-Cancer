@@ -5,6 +5,7 @@ import axios from 'axios';
 import Colors from '../../constants/Colors';
 import { Icon } from 'native-base';
 import { DrawerActions } from '@react-navigation/native';
+import styles from '../../constants/Styles';
 import { useAuth } from '../auth';
 
 export default class ReminderList extends Component {
