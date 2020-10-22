@@ -1,12 +1,20 @@
 import * as React from 'react';
-import { Button } from 'react-native-elements';
-import { Ionicons } from '@expo/vector-icons';
-import { Image, TextInput, View, Button, Text, KeyboardAvoidingView } from 'react-native';
+import { Container, Header, Left, Body, Right, Title } from 'native-base';
 
 export const ConfigScreen = () => {
     return(
-        <View>
-            <Text>
-        </View>
+        //container
+        <Container>
+            <Header>
+                <Left>
+
+                </Left>
+            </Header>
+            //titulo da pagina
+            //button pra ativar o talkback
+            //button pra ativar as notificações
+            //opções de temas
+        </Container>
+
     );
 }

@@ -95,23 +95,15 @@ export default function HomeScreen({navigation}) {
             <View>
               <TouchableOpacity
                   onPress={() => {navigation.navigate('Agenda')}}
-                  style={[styles.homeButton, {marginLeft: '14%'}]}
+                  style={[styles.homeButton, {marginLeft: '10%'}]}
               >
                 <Image
-                  style={[styles.imageHomeContainer, {height: '75%', marginTop: 10}]}
+                  style={[styles.imageHomeContainer, {height: '60%', marginTop: 10, alignSelf:'center'}]}
                   source={require('../../assets/images/agenda.png')}
                   resizeMode='contain'
                 />
               </TouchableOpacity>
             </View>
-            <TouchableOpacity
-                onPress={() => {navigation.navigate('SplashScreen')}}
-                style={styles.contactButton}
-            >
-                <Icon
-                    name='add'
-                />
-            </TouchableOpacity>
         </ScrollView>
     </View>
   );
@@ -147,7 +139,7 @@ const stylesCard = StyleSheet.create({
       resizeMode: 'cover',
       borderRadius: 50,
       alignSelf: 'center',
-      marginLeft: '17%'
+      marginLeft: '30%'
   },
   loader: {
       flex: 1,

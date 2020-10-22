@@ -3,7 +3,6 @@ import { Platform, StyleSheet, ColorPropType} from 'react-native';
 
 import {Dimensions, PixelRatio} from 'react-native';
 import Colors from './Colors';
-import { ThemeConsumer } from 'react-native-elements';
 const widthPercentageToDP = widthPercent => {
   const screenWidth = Dimensions.get('window').width;
   // Convert string input to decimal number
@@ -27,6 +26,23 @@ const styles = StyleSheet.create({
     backgroundImage:{
       flex: 1,
       resizeMode: 'cover',
+    },
+    IconProfile: {
+      width: widthPercentageToDP('20%'),
+      height: heightPercentageToDP('10%'),
+      borderRadius: widthPercentageToDP('20%'),
+      borderColor: Colors.White,
+    },
+    IconProfileSmall: {
+      width: widthPercentageToDP('15%'),
+      height: heightPercentageToDP('8%'),
+      borderRadius: widthPercentageToDP('20%'),
+      borderColor: Colors.White,
+    },
+    IconButtom: {
+      width: widthPercentageToDP('20%'),
+      height: heightPercentageToDP('10%'),
+      borderRadius: widthPercentageToDP('20%'),
     },
     bar: {
       width: widthPercentageToDP('100%'),
@@ -75,18 +91,52 @@ const styles = StyleSheet.create({
     //H
     header:{
       width: widthPercentageToDP('100%'),
-      height: heightPercentageToDP('10%'),
-      borderBottomEndRadius: 45,
+      height: heightPercentageToDP('23%'),
+      borderBottomEndRadius: 40,
+      borderBottomStartRadius: 40,
       justifyContent: 'space-between',
-      padding: 18,
+      overflow: 'hidden',
+    },
+    textbold:{
+      fontWeight: 'bold',
+      fontSize: 16,
+    },
+    text:{
+      fontSize: 12,
+      textAlign: 'center'
+    },
+    bordercontainer:{
+      backgroundColor: Colors.White,
+      width: widthPercentageToDP('50%'),
+      height: heightPercentageToDP('17%%'),
+      borderRadius: 15,
+      margin: 10,
+      marginVertical: 15,
       shadowColor: '#000',
-      shadowOpacity: 0.8,
-      shadowRadius: 0.3,
+      shadowOpacity: 0.6,
+      shadowRadius: 0.1,
       shadowOffset: {
-       width: 1,
-       height: 5,
+       width: 0,
+       height: 3,
      },
-      elevation: 15,
+      elevation: 5,
+    },
+    homenotification:{
+      backgroundColor: Colors.White,
+      width: widthPercentageToDP('32.5%'),
+      height: heightPercentageToDP('17%%'),
+      marginTop: widthPercentageToDP('5%'),
+      borderRadius: 15,
+      margin: 10,
+      marginVertical: 15,
+      shadowColor: '#000',
+      shadowOpacity: 0.6,
+      shadowRadius: 0.1,
+      shadowOffset: {
+       width: 10,
+       height: 10,
+     },
+      elevation:5,
     },
     helpContainer: {
       marginTop: 15,
@@ -102,7 +152,7 @@ const styles = StyleSheet.create({
     homeButton:{
       margin: 10,
       borderRadius: 10,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.White,
       alignItems: 'center',
       width: widthPercentageToDP('30%'),
       height: heightPercentageToDP('15%'),
@@ -116,9 +166,28 @@ const styles = StyleSheet.create({
       elevation: 3,
     },
     homeTitleText:{
-      color: Colors.blue,
-      fontSize: heightPercentageToDP('4.5%'),
-      marginTop: heightPercentageToDP('1%')
+      fontSize: heightPercentageToDP('3.5%'),
+      fontWeight: 'bold'
+    },
+    circle: {
+      backgroundColor: Colors.White,
+      width: widthPercentageToDP('19%'),
+      height: heightPercentageToDP('9.5%'),
+      borderRadius: widthPercentageToDP('19%'),
+      shadowColor: '#000000',
+      shadowOpacity: 0.5,
+      shadowRadius: 20,
+      shadowOffset: {
+       width: 0.6,
+       height: 0.7,
+     },
+      elevation: 10,
+    },
+    fastbuttom: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: widthPercentageToDP('80%'),
+      marginVertical: widthPercentageToDP('-10%'),
     },
     //I
     imageContainer: {
@@ -139,6 +208,7 @@ const styles = StyleSheet.create({
     imageHomeContainer: {
       resizeMode: 'contain',
       height: heightPercentageToDP('12.5%'),
+      alignContent: 'center'
     },
     //M
     marginBasic: {
@@ -237,7 +307,7 @@ const styles = StyleSheet.create({
     titleText:{
       textAlign: 'center',
       fontWeight: 'bold',
-      fontSize: heightPercentageToDP('2%'),
+      fontSize: heightPercentageToDP('3%'),
       marginVertical: heightPercentageToDP('5%')
     },
     tomTab: {
