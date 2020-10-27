@@ -4,12 +4,13 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../src/screens/HomeScreen';
 import ReminderList from '../src/screens/ReminderList';
 import ChatScreen from '../src/screens/ChatScreen';
-import tab from './tab';
 import styles from '../constants/Styles';
 import LoginScreen from '../src/screens/LoginScreen';
+import Home from '../src/screens/Home';
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Colors from '../constants/Colors';
+import TabBg from '../components/Tabbg';
 
 const BottomTab = createMaterialBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -20,10 +21,11 @@ export default function BottomTabNavigator({ navigation, route }) {
     <BottomTab.Navigator
       initialRouteName={INITIAL_ROUTE_NAME}
       activeColor={Colors.white}
+      tabBar={() => {<TabBg></TabBg>}}
     >
       <BottomTab.Screen
         name="Home"
-        component={HomeScreen}
+        component={Home}
         options={{
           tabBarLabel: 'Home',
           tabBarColor: Colors.secondary,
@@ -34,7 +36,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="Lembretes"
-        component={ReminderList}
+        component={Home}
         options={{
           tabBarLabel: 'Lembretes',
           tabBarColor: Colors.blue,
@@ -45,7 +47,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="M. de Saúde"
-        component={HomeScreen}
+        component={Home}
         options={{
           tabBarLabel: 'M. de Saúde',
           tabBarColor: Colors.secondary,
@@ -56,7 +58,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="Canal Aberto"
-        component={ChatScreen}
+        component={Home}
         options={{
           tabBarLabel: 'Canal Aberto',
           tabBarColor: Colors.blue,

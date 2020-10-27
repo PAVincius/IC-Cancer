@@ -15,6 +15,7 @@ import ReminderList from './src/screens/ReminderList';
 import Contact from './components/forms/Contact';
 import PersonalInformation from './components/forms/PersonalInformation'
 import Home from './src/screens/Home'
+import Noticias from './src/screens/Noticias'
 
 import useCachedResources from './hooks/useCachedResources';
 //import ThemeContext from './assets/context/ThemeContext';
@@ -26,6 +27,7 @@ import FirstAcess from './src/screens/FirstAcess';
 import CardContacts from './components/CardContacts';
 import CardMyData from './components/CardMyData';
 import HomeScreen from './src/screens/HomeScreen';
+import Profile from './src/screens/Profile';
 
 const theme = {
   ...DefaultTheme,
@@ -82,7 +84,10 @@ export default function App() {
         <PaperProvider theme={theme}>
           <NavigationContainer>
             <Stack.Navigator initialRouteName={Home}>
+              <Stack.Screen options={{headerShown: false}} name="Bottomtab" component={BottomTabNavigator} />
               <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
+              <Stack.Screen options={{headerShown: false}} name="Noticias" component={Noticias} />
+              <Stack.Screen options={{headerShown: false}} name="Profile" component={Profile} />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>

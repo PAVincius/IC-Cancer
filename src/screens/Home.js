@@ -1,17 +1,12 @@
-import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, ImageBackground } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { CheckBox } from 'react-native-elements'
-import { MonoText } from '../../components/StyledText';
-import { Icon } from 'native-base';
-import { DrawerActions } from '@react-navigation/native';
+import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import styles from '../../constants/Styles';
 import { useAuth } from '../auth';
 import {LinearGradient} from 'expo-linear-gradient';
 
-import CardMyData from '../../components/CardMyData';
 import Colors from '../../constants/Colors';
+import { TabBg } from '../../components/Tabbg';
 
 export default function Home({navigation}) {
   const [, { logout }] = useAuth();
@@ -31,7 +26,9 @@ export default function Home({navigation}) {
                 Amanda
               </Text>
             </View>
-            <Image style={[styles.IconProfile,{borderWidth: 5}]} source={require('../../assets/images/avatar11.png')}/>
+            <TouchableWithoutFeedback onPress={() => {navigation.navigate('Profile')}}>
+              <Image style={[styles.IconProfile,{borderWidth: 5}]} source={require('../../assets/images/avatar11.png')}/>
+            </TouchableWithoutFeedback>
           </View>
         </LinearGradient>
         <View style={styles.fastbuttom}>
@@ -94,7 +91,7 @@ export default function Home({navigation}) {
               </Text>
             </View>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <TouchableOpacity style={styles.bordercontainer}>
+              <TouchableOpacity style={styles.bordercontainer} onPress={() => {navigation.navigate('Noticias')}}>
                 <Image
                   style={{flex:1, width:null, borderRadius:15}}
                   source={require('../../assets/images/noticiasmascara.png')}
@@ -127,17 +124,86 @@ export default function Home({navigation}) {
               <Text style={[styles.textbold,{color: Colors.Blue, marginLeft: '4%'}]}>
                 Notificações
               </Text>
-              <Text style={[styles.textbold,{color: Colors.Green2,marginRight: '4%'}]}>
-                Ver todas
-              </Text>
+              <TouchableOpacity>
+                <Text style={[styles.textbold,{color: Colors.Green2,marginRight: '4%'}]}>
+                  Ver todas
+                </Text>
+              </TouchableOpacity>
             </View>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <TouchableOpacity>
+              <TouchableOpacity style={{flexDirection: 'column', justifyContent:'space-between', alignContent:'center'}}>
                 <View style={styles.homenotification}>
-                  <Image style={[styles.IconProfileSmall,{marginTop:'-25%'}]} source={require('../../assets/images/avatar11.png')}/>
+                  <Image style={[styles.IconProfileSmall,{marginTop:'-25%'}]} source={require('../../assets/images/avatar22.png')}/>
+                  <Text style={[styles.textbold,{color:Colors.DarkPurple, fontSize:14, margin:5}]}>Dra. Alina James</Text>
+                  <Text style={[styles.text,{color:Colors.SoftGrey, marginTop:'5%',fontSize:11, margin:10}]}>Mandou uma mensagem para você</Text>
+                  <View style={{flex:1,flexDirection:'row', alignItems:'center'}}>
+                    <View>
+                      <Text style={{fontSize:12, marginRight:12}}>08:31</Text>
+                    </View>
+                    <View>
+                      <Text style={{fontSize:12, marginLeft:12}}>10/09/20</Text>
+                    </View>
+                  </View>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={{flexDirection: 'column', justifyContent:'space-between', alignContent:'center'}}>
+                <View style={styles.homenotification}>
+                  <Image style={[styles.IconProfileSmall,{marginTop:'-25%'}]} source={require('../../assets/images/avatar33.png')}/>
+                  <Text style={[styles.textbold,{color:Colors.DarkPurple, fontSize:14, margin:5}]}>Dr. Steve Robert</Text>
+                  <Text style={[styles.text,{color:Colors.SoftGrey, marginTop:'5%',fontSize:11, margin:10}]}>A data da sua consulta está próxima</Text>
+                  <View style={{flex:1,flexDirection:'row', alignItems:'center'}}>
+                    <View>
+                      <Text style={{fontSize:12, marginRight:12}}>09:00</Text>
+                    </View>
+                    <View>
+                      <Text style={{fontSize:12, marginLeft:12}}>09/09/20</Text>
+                    </View>
+                  </View>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={{flexDirection: 'column', justifyContent:'space-between', alignContent:'center'}}>
+                <View style={styles.homenotification}>
+                  <Image style={[styles.IconProfileSmall,{marginTop:'-25%'}]} source={require('../../assets/images/avatar44.png')}/>
+                  <Text style={[styles.textbold,{color:Colors.DarkPurple, fontSize:14, margin:5}]}>Dra. Selina Figer</Text>
+                  <Text style={[styles.text,{color:Colors.SoftGrey, marginTop:'5%',fontSize:11, margin:10}]}>Mandou um áudio para você</Text>
+                  <View style={{flex:1,flexDirection:'row', alignItems:'center'}}>
+                    <View>
+                      <Text style={{fontSize:12, marginRight:12}}>10:37</Text>
+                    </View>
+                    <View>
+                      <Text style={{fontSize:12, marginLeft:12}}>08/09/20</Text>
+                    </View>
+                  </View>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={{flexDirection: 'column', justifyContent:'space-between', alignContent:'center'}}>
+                <View style={styles.homenotification}>
+                  <Image style={[styles.IconProfileSmall,{marginTop:'-25%'}]} source={require('../../assets/images/avatar55.jpg')}/>
+                  <Text style={[styles.textbold,{color:Colors.DarkPurple, fontSize:14, margin:5}]}>Dra. Bruna Silva</Text>
+                  <Text style={[styles.text,{color:Colors.SoftGrey, marginTop:'5%',fontSize:11, margin:10}]}>Mandou uma mensagem para você</Text>
+                  <View style={{flex:1,flexDirection:'row', alignItems:'center'}}>
+                    <View>
+                      <Text style={{fontSize:12, marginRight:12}}>15:10</Text>
+                    </View>
+                    <View>
+                      <Text style={{fontSize:12, marginLeft:12}}>11//09/20</Text>
+                    </View>
+                  </View>
                 </View>
               </TouchableOpacity>
             </ScrollView>
+            <Text style={[styles.textbold,{color: Colors.Blue, marginLeft: '4%'}]}>
+                Enquanto esteve fora
+            </Text>
+            <View style={styles.homenotification}>
+
+            </View>
+            <View style={styles.homenotification}>
+
+            </View>
+            <View style={styles.homenotification}>
+
+            </View>
         </ScrollView>
     </View>
   );

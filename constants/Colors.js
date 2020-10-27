@@ -7,6 +7,7 @@ export default {
   DarkBlue: '#3F4079',
   LightGreen: '#CDE0C9',
   Blue: '#205072',
+  DarkPurple: '#313450',
   Green: '#4DA680',
   Green2: '#1CDC69',
   DarkGreen: '#329D9C',
@@ -17,4 +18,6 @@ export default {
   Black: '#272727',
   White: '#FFFFFF',
   LightGrey: '#C4C4C4',
+  SoftGrey: '#898A8F',
+  BlueGrey: '#262640',
 };

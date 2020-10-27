@@ -97,6 +97,32 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       overflow: 'hidden',
     },
+    noticias:{
+      width: widthPercentageToDP('100%'),
+      height: heightPercentageToDP('20%'),
+      justifyContent: 'space-between',
+      overflow: 'hidden',
+      opacity: 1,
+      flexDirection:'column',
+      justifyContent:'center'
+    },
+    noticias2:{
+      backgroundColor: Colors.White,
+      width: widthPercentageToDP('90%'),
+      height: heightPercentageToDP('100%'),
+      borderTopEndRadius: 20,
+      borderTopStartRadius: 20,
+      alignSelf:'center',
+      padding: 20,
+      shadowColor: '#000',
+      shadowOpacity: 0.2,
+      shadowRadius: 0.1,
+      shadowOffset: {
+       width: 0,
+       height: 1,
+     },
+      elevation: 10,
+    },
     textbold:{
       fontWeight: 'bold',
       fontSize: 16,
@@ -121,12 +147,21 @@ const styles = StyleSheet.create({
      },
       elevation: 5,
     },
+    separator:{
+      backgroundColor: Colors.Grey,
+      width: widthPercentageToDP('80%'),
+      height: heightPercentageToDP('0.15%'),
+      opacity: 0.2,
+      marginVertical: '5%'
+    },
     homenotification:{
+      flexDirection:'column',
+      alignItems:'center',
       backgroundColor: Colors.White,
       width: widthPercentageToDP('32.5%'),
       height: heightPercentageToDP('17%%'),
-      marginTop: widthPercentageToDP('5%'),
-      borderRadius: 15,
+      marginTop: widthPercentageToDP('10%'),
+      borderRadius: 10,
       margin: 10,
       marginVertical: 15,
       shadowColor: '#000',
@@ -137,6 +172,10 @@ const styles = StyleSheet.create({
        height: 10,
      },
       elevation:5,
+    },
+    noticiasImage:{
+      width: widthPercentageToDP('100%'),
+      height: heightPercentageToDP('30%%'),
     },
     helpContainer: {
       marginTop: 15,
