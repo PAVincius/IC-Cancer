@@ -4,6 +4,10 @@ import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { styled } from 'styled-components';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import themeReducer from './redux/themeReducer';
 
 //Screens
 import SplashScreen from './src/screens/SplashScreen';
@@ -18,7 +22,6 @@ import Home from './src/screens/Home'
 import Noticias from './src/screens/Noticias'
 
 import useCachedResources from './hooks/useCachedResources';
-//import ThemeContext from './assets/context/ThemeContext';
 //import DrawerNavigator from './navigation/DrawerNavigator';
 import BottomTabNavigator from './navigation/BottomTabNavigator'
 import { StoreProvider } from './src/store';
@@ -28,6 +31,7 @@ import CardContacts from './components/CardContacts';
 import CardMyData from './components/CardMyData';
 import HomeScreen from './src/screens/HomeScreen';
 import Profile from './src/screens/Profile';
+import { ConfigScreen } from './src/screens/ConfigScreen';
 
 const theme = {
   ...DefaultTheme,
@@ -68,6 +72,8 @@ const Router = () => {
   return store.auth ? <BottomTabNavigator/> : <LoginScreen/>
 }
 
+const store = createStore(combineReducers({ themeReducer }), applyMiddleware(thunk));
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -78,6 +84,7 @@ export default function App() {
     return null;
   } else {
     return (
+      <Provider store={store}>
       <StoreProvider>
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
@@ -88,11 +95,13 @@ export default function App() {
               <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
               <Stack.Screen options={{headerShown: false}} name="Noticias" component={Noticias} />
               <Stack.Screen options={{headerShown: false}} name="Profile" component={Profile} />
+              <Stack.Screen options={{headerShown: false}} name="Config" component={ConfigScreen} />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>
       </View>
       </StoreProvider>
+      </Provider>
     );
   }
 }

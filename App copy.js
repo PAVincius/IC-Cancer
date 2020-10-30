@@ -16,7 +16,6 @@ import Contact from './components/forms/Contact';
 import PersonalInformation from './components/forms/PersonalInformation'
 
 import useCachedResources from './hooks/useCachedResources';
-//import ThemeContext from './assets/context/ThemeContext';
 //import DrawerNavigator from './navigation/DrawerNavigator';
 import BottomTabNavigator from './navigation/BottomTabNavigator'
 import { StoreProvider } from './src/store';

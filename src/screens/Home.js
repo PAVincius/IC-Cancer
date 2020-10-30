@@ -191,10 +191,14 @@ export default function Home({navigation}) {
                   </View>
                 </View>
               </TouchableOpacity>
+              
             </ScrollView>
             <Text style={[styles.textbold,{color: Colors.Blue, marginLeft: '4%'}]}>
                 Enquanto esteve fora
             </Text>
+            <TouchableOpacity onPress={() => {navigation.navigate('Config')}}>
+                  <Text>Configurations</Text>
+            </TouchableOpacity>
             <View style={styles.homenotification}>
 
             </View>
@@ -204,6 +208,7 @@ export default function Home({navigation}) {
             <View style={styles.homenotification}>
 
             </View>
+            
         </ScrollView>
     </View>
   );
