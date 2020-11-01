@@ -147,6 +147,16 @@ const styles = StyleSheet.create({
      },
       elevation: 5,
     },
+    themecontainer:{
+      width: widthPercentageToDP('14%'),
+      height: heightPercentageToDP('7%'),
+      borderRadius: 15,
+      margin: 10,
+    },
+    themecontainer2:{
+      width: widthPercentageToDP('80 %'),
+      height: heightPercentageToDP('10%'),
+    },
     separator:{
       backgroundColor: Colors.Grey,
       width: widthPercentageToDP('80%'),
