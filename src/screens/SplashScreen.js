@@ -10,7 +10,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const SplashScreen = ({navigation}) => {
     return(
-        <LinearGradient 
+        <LinearGradient
             colors={[Colors.primary, Colors.secondaryLight]}
             style={{flex:1}}>
             <SafeAreaView style={{flexDirection: 'column',alignItems: 'center' }}>

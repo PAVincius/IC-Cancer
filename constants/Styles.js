@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Platform, StyleSheet, ColorPropType} from 'react-native';
+import styled from 'styled-components';
 
 import {Dimensions, PixelRatio} from 'react-native';
 import Colors from './Colors';
-import { ThemeConsumer } from 'react-native-elements';
 const widthPercentageToDP = widthPercent => {
   const screenWidth = Dimensions.get('window').width;
   // Convert string input to decimal number
@@ -21,6 +21,31 @@ export {
   heightPercentageToDP
 };
 
+export const ButtonText = styled.Text`
+    fontSize: 20px;
+    color: ${(props) => props.theme.primary_button_text_color};
+    alignItems: center;
+    justifyContent: center;
+`;
+
+export const Text = styled.Text`
+    fontSize: 12;
+    textAlign: center;
+    color: ${(props) => props.theme.primary_text_color};
+`;
+
+export const TextBold = styled.Text`
+    fontWeight: bold;
+    fontSize: 16;
+    color: ${(props) => props.theme.primary_text_color};
+`;
+
+export const HomeTitleText = styled.Text`
+    fontSize: 15;
+    fontWeight: bold;
+    color: ${(props) => props.theme.primary_text_color};
+`;
+
 //Os styles estão em ordem alfabetica
 const styles = StyleSheet.create({
     //B
@@ -28,20 +53,30 @@ const styles = StyleSheet.create({
       flex: 1,
       resizeMode: 'cover',
     },
+    IconProfile: {
+      width: widthPercentageToDP('20%'),
+      height: heightPercentageToDP('10%'),
+      borderRadius: widthPercentageToDP('20%'),
+      borderColor: Colors.White,
+    },
+    IconProfileSmall: {
+      width: widthPercentageToDP('15%'),
+      height: heightPercentageToDP('8%'),
+      borderRadius: widthPercentageToDP('20%'),
+      borderColor: Colors.White,
+    },
+    IconButtom: {
+      width: widthPercentageToDP('20%'),
+      height: heightPercentageToDP('10%'),
+      borderRadius: widthPercentageToDP('20%'),
+    },
     bar: {
       width: widthPercentageToDP('100%'),
       height: heightPercentageToDP('6%'),
       borderTopLeftRadius: 20,
       borderTopRightRadius: 4,
     },
-    ButtonText: {
-      fontSize: 28,
-      color: Colors.LoginText,
-      position: 'absolute',
-      top: '20%',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+  
     //C
     container: {
       flex: 1,
@@ -75,18 +110,93 @@ const styles = StyleSheet.create({
     //H
     header:{
       width: widthPercentageToDP('100%'),
-      height: heightPercentageToDP('10%'),
-      borderBottomEndRadius: 45,
+      height: heightPercentageToDP('23%'),
+      borderBottomEndRadius: 40,
+      borderBottomStartRadius: 40,
       justifyContent: 'space-between',
-      padding: 18,
+      overflow: 'hidden',
+    },
+    noticias:{
+      width: widthPercentageToDP('100%'),
+      height: heightPercentageToDP('20%'),
+      justifyContent: 'space-between',
+      overflow: 'hidden',
+      opacity: 1,
+      flexDirection:'column',
+      justifyContent:'center'
+    },
+    noticias2:{
+      backgroundColor: Colors.White,
+      width: widthPercentageToDP('90%'),
+      height: heightPercentageToDP('100%'),
+      borderTopEndRadius: 20,
+      borderTopStartRadius: 20,
+      alignSelf:'center',
+      padding: 20,
       shadowColor: '#000',
-      shadowOpacity: 0.8,
-      shadowRadius: 0.3,
+      shadowOpacity: 0.2,
+      shadowRadius: 0.1,
       shadowOffset: {
-       width: 1,
-       height: 5,
+       width: 0,
+       height: 1,
      },
-      elevation: 15,
+      elevation: 10,
+    },
+    bordercontainer:{
+      backgroundColor: Colors.White,
+      width: widthPercentageToDP('50%'),
+      height: heightPercentageToDP('17%%'),
+      borderRadius: 15,
+      margin: 10,
+      marginVertical: 15,
+      shadowColor: '#000',
+      shadowOpacity: 0.6,
+      shadowRadius: 0.1,
+      shadowOffset: {
+       width: 0,
+       height: 3,
+     },
+      elevation: 5,
+    },
+    themecontainer:{
+      width: widthPercentageToDP('14%'),
+      height: heightPercentageToDP('7%'),
+      borderRadius: 15,
+      margin: 10,
+    },
+    themecontainer2:{
+      width: widthPercentageToDP('80 %'),
+      height: heightPercentageToDP('10%'),
+    },
+    separator:{
+      backgroundColor: Colors.Grey,
+      width: widthPercentageToDP('80%'),
+      height: heightPercentageToDP('0.15%'),
+      opacity: 0.2,
+      marginVertical: '5%'
+    },
+    homenotification:{
+      flexDirection:'column',
+      alignItems:'center',
+      backgroundColor: Colors.White,
+      width: widthPercentageToDP('32.5%'),
+      height: heightPercentageToDP('17%%'),
+      marginTop: widthPercentageToDP('10%'),
+      borderRadius: 10,
+      margin: 10,
+      marginVertical: 15,
+      shadowColor: '#000',
+      shadowOpacity: 0.6,
+      shadowRadius: 0.1,
+      shadowOffset: {
+       width: 10,
+       height: 10,
+     },
+      elevation:5,
+    },
+    noticiasImage:{
+      width: widthPercentageToDP('100%'),
+      height: heightPercentageToDP('30%%'),
     },
     helpContainer: {
       marginTop: 15,
@@ -102,7 +212,7 @@ const styles = StyleSheet.create({
     homeButton:{
       margin: 10,
       borderRadius: 10,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.White,
       alignItems: 'center',
       width: widthPercentageToDP('30%'),
       height: heightPercentageToDP('15%'),
@@ -116,9 +226,28 @@ const styles = StyleSheet.create({
       elevation: 3,
     },
     homeTitleText:{
-      color: Colors.blue,
-      fontSize: heightPercentageToDP('4.5%'),
-      marginTop: heightPercentageToDP('1%')
+      fontSize: heightPercentageToDP('3.5%'),
+      fontWeight: 'bold'
+    },
+    circle: {
+      backgroundColor: Colors.White,
+      width: widthPercentageToDP('19%'),
+      height: heightPercentageToDP('9.5%'),
+      borderRadius: widthPercentageToDP('19%'),
+      shadowColor: '#000000',
+      shadowOpacity: 0.5,
+      shadowRadius: 20,
+      shadowOffset: {
+       width: 0.6,
+       height: 0.7,
+     },
+      elevation: 10,
+    },
+    fastbuttom: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: widthPercentageToDP('80%'),
+      marginVertical: widthPercentageToDP('-10%'),
     },
     //I
     imageContainer: {
@@ -129,9 +258,8 @@ const styles = StyleSheet.create({
     },
     imageContainerGreat: {
       resizeMode: 'contain',
-      height: heightPercentageToDP('70%'),
-      marginBottom: '20%',
-      marginTop: '20%'
+      height: heightPercentageToDP('90%'),
+      alignContent: 'center'
     },
     imageContainerMedium: {
       resizeMode: 'contain',
@@ -140,6 +268,7 @@ const styles = StyleSheet.create({
     imageHomeContainer: {
       resizeMode: 'contain',
       height: heightPercentageToDP('12.5%'),
+      alignContent: 'center'
     },
     //M
     marginBasic: {
@@ -238,7 +367,7 @@ const styles = StyleSheet.create({
     titleText:{
       textAlign: 'center',
       fontWeight: 'bold',
-      fontSize: heightPercentageToDP('2%'),
+      fontSize: heightPercentageToDP('3%'),
       marginVertical: heightPercentageToDP('5%')
     },
     tomTab: {

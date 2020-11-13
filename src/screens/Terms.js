@@ -8,6 +8,7 @@ import { color } from 'react-native-reanimated';
 import { ColorPropType } from 'react-native';
 import Colors from '../../constants/Colors';
 
+
 function Terms({navigation}){
     return(
         <View style={{flex:1,flexDirection:'column', alignItems: 'center', justifyContent:'space-between'}}>
@@ -27,6 +28,11 @@ function Terms({navigation}){
                 </Text>
             </View>
             <View>
+              <TouchableOpacity onPress={()  => {navigation.navigate('Terms2')}}>
+                <Text style={{alignSelf: 'center', marginVertical: '3%'}}>
+                  Ler termos de Uso do Aplicativo
+                </Text>
+              </TouchableOpacity>
                 <TouchableOpacity onPress={()  => {navigation.navigate('Auth')}} style={[styles.defaultButton, {backgroundColor: Colors.secondaryLight}]}>
                     <View style={{margin:5}}>
                         <Text style={{textAlign:'center',color:Colors.white, fontWeight:'bold'}}>ACEITO COMPARTILHAR MEUS DADOS COM O MINISTÉRIO DA SAÚDE</Text>

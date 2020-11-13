@@ -1,4 +1,3 @@
-
 import React,{Component} from 'react';
 import { View, Text, TouchableWithoutFeedback, FlatList, StyleSheet, useContext, ScrollView, Button} from 'react-native';
 import TabBarIcon from '../../components/TabBarIcon';
@@ -39,7 +38,7 @@ export default class ReminderList extends Component {
           </View>
           <ScrollView>
             <View style={styles1.pad}>
-              { 
+              {
               ReminderList.map(({id,hour,date,title,subtitle}) => (
                 <TouchableWithoutFeedback key={id} onPress={() => navigation.navigate('Reminder')}>
                   <View>
@@ -62,7 +61,7 @@ export default class ReminderList extends Component {
               ))
               }
             </View>
-          </ScrollView>    
+          </ScrollView>
       </View>
     )
   }
