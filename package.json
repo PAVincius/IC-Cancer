@@ -32,7 +32,7 @@
     "expo-web-browser": "~8.2.0",
     "fluidbottomnavigation-rn": "^0.1.1",
     "formik": "^2.1.4",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "native-base": "^2.13.8",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
